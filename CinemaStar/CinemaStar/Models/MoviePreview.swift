@@ -10,12 +10,16 @@ struct MoviePreview: Identifiable {
     /// Url постера
     let posterUrl: String
     /// Рейтинг на кинопоиске
-    let kpRating: Double?
+    let kpRating: String
 
     init(fromDTO movieDTO: MovieDTO) {
         id = movieDTO.id
         name = movieDTO.name
         posterUrl = movieDTO.poster.url
-        kpRating = movieDTO.rating?.kp
+        if let rating = movieDTO.rating?.kp {
+            kpRating = "⭐ \(String(format: "%.1f", rating))"
+        } else {
+            kpRating = ""
+        }
     }
 }

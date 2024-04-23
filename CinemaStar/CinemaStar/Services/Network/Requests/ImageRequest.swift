@@ -23,4 +23,8 @@ extension ImageRequest: NetworkRequest {
     func execute() async throws -> URL? {
         try await load(url)
     }
+
+    func convert(_ dto: URL?) throws -> URL? {
+        dto
+    }
 }

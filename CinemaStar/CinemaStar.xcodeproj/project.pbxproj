@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */; };
 		DAAAA9B32BD6E01A0009D60C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */; };
-		DAAAA9B52BD6E01A0009D60C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B42BD6E01A0009D60C /* ViewController.swift */; };
 		DAAAA9BA2BD6E01E0009D60C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAAAA9B92BD6E01E0009D60C /* Images.xcassets */; };
 		DAAAA9BD2BD6E01E0009D60C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DAAAA9BC2BD6E01E0009D60C /* Base */; };
 		DAAAA9C82BD6E01F0009D60C /* CinemaStarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9C72BD6E01F0009D60C /* CinemaStarTests.swift */; };
@@ -38,6 +37,8 @@
 		DACF25A42BD80FA800D78225 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25A32BD80FA800D78225 /* ImageRequest.swift */; };
 		DACF25A62BD810B000D78225 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25A52BD810B000D78225 /* APIRequest.swift */; };
 		DACF25A82BD8135900D78225 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25A72BD8135900D78225 /* NetworkError.swift */; };
+		DACF25AE2BD8174900D78225 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25AD2BD8174900D78225 /* CatalogViewModel.swift */; };
+		DACF25B02BD8178000D78225 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25AF2BD8178000D78225 /* CatalogViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +62,6 @@
 		DAAAA9AD2BD6E01A0009D60C /* CinemaStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DAAAA9B42BD6E01A0009D60C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DAAAA9B92BD6E01E0009D60C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAAAA9BC2BD6E01E0009D60C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAAAA9BE2BD6E01E0009D60C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +93,8 @@
 		DACF25A32BD80FA800D78225 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		DACF25A52BD810B000D78225 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		DACF25A72BD8135900D78225 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		DACF25AD2BD8174900D78225 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
+		DACF25AF2BD8178000D78225 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,9 +145,9 @@
 		DAAAA9AF2BD6E01A0009D60C /* CinemaStar */ = {
 			isa = PBXGroup;
 			children = (
+				DACF25AB2BD8170300D78225 /* App */,
 				DACF25992BD807FA00D78225 /* Services */,
 				DACF25832BD7E3D500D78225 /* Models */,
-				DAAAA9B42BD6E01A0009D60C /* ViewController.swift */,
 				DAAAA9E02BD6E2C50009D60C /* Resources */,
 				DACF257E2BD7D4EF00D78225 /* Utils */,
 				DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */,
@@ -263,6 +265,23 @@
 				DACF25A52BD810B000D78225 /* APIRequest.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		DACF25AB2BD8170300D78225 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DACF25AC2BD8173100D78225 /* Catalog */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DACF25AC2BD8173100D78225 /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				DACF25AD2BD8174900D78225 /* CatalogViewModel.swift */,
+				DACF25AF2BD8178000D78225 /* CatalogViewController.swift */,
+			);
+			path = Catalog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,7 +466,6 @@
 				DACF25942BD7EB9A00D78225 /* PersonDTO.swift in Sources */,
 				DACF25A62BD810B000D78225 /* APIRequest.swift in Sources */,
 				DACF258C2BD7E65400D78225 /* RatingDTO.swift in Sources */,
-				DAAAA9B52BD6E01A0009D60C /* ViewController.swift in Sources */,
 				DACF259E2BD80CD800D78225 /* MoviesResource.swift in Sources */,
 				DACF25802BD7D50E00D78225 /* ObservableObject.swift in Sources */,
 				DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */,
@@ -461,10 +479,12 @@
 				DACF25982BD7F04500D78225 /* Actor.swift in Sources */,
 				DACF25822BD7E32900D78225 /* MoviePreview.swift in Sources */,
 				DACF25862BD7E5E600D78225 /* WrapperDTO.swift in Sources */,
+				DACF25B02BD8178000D78225 /* CatalogViewController.swift in Sources */,
 				DACF25A02BD80E5300D78225 /* MovieDetailsResource.swift in Sources */,
 				DACF25922BD7EB3900D78225 /* MovieDetailsDTO.swift in Sources */,
 				DACF258A2BD7E64200D78225 /* PosterDTO.swift in Sources */,
 				DACF259C2BD80A2E00D78225 /* APIResource.swift in Sources */,
+				DACF25AE2BD8174900D78225 /* CatalogViewModel.swift in Sources */,
 				DACF25882BD7E61700D78225 /* MovieDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

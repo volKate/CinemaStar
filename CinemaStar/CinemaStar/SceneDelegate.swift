@@ -13,7 +13,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func configureWindow(with scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = ViewController()
+        let catalogVM = CatalogViewModel()
+        window?.rootViewController = CatalogViewController(catalogViewModel: catalogVM)
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
     }
