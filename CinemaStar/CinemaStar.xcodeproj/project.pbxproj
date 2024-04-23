@@ -40,6 +40,8 @@
 		DACF25AE2BD8174900D78225 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25AD2BD8174900D78225 /* CatalogViewModel.swift */; };
 		DACF25B02BD8178000D78225 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25AF2BD8178000D78225 /* CatalogViewController.swift */; };
 		DACF25B22BD8285A00D78225 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25B12BD8285A00D78225 /* ViewState.swift */; };
+		DACF25B52BD82CCB00D78225 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25B42BD82CCB00D78225 /* DetailsViewController.swift */; };
+		DACF25B72BD82D0900D78225 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25B62BD82D0900D78225 /* DetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 		DACF25AD2BD8174900D78225 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
 		DACF25AF2BD8178000D78225 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		DACF25B12BD8285A00D78225 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		DACF25B42BD82CCB00D78225 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		DACF25B62BD82D0900D78225 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +277,7 @@
 		DACF25AB2BD8170300D78225 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				DACF25B32BD82CB700D78225 /* Details */,
 				DACF25AC2BD8173100D78225 /* Catalog */,
 			);
 			path = App;
@@ -285,6 +290,15 @@
 				DACF25AF2BD8178000D78225 /* CatalogViewController.swift */,
 			);
 			path = Catalog;
+			sourceTree = "<group>";
+		};
+		DACF25B32BD82CB700D78225 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				DACF25B62BD82D0900D78225 /* DetailsViewModel.swift */,
+				DACF25B42BD82CCB00D78225 /* DetailsViewController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,8 +497,10 @@
 				DACF25B22BD8285A00D78225 /* ViewState.swift in Sources */,
 				DACF25822BD7E32900D78225 /* MoviePreview.swift in Sources */,
 				DACF25862BD7E5E600D78225 /* WrapperDTO.swift in Sources */,
+				DACF25B72BD82D0900D78225 /* DetailsViewModel.swift in Sources */,
 				DACF25B02BD8178000D78225 /* CatalogViewController.swift in Sources */,
 				DACF25A02BD80E5300D78225 /* MovieDetailsResource.swift in Sources */,
+				DACF25B52BD82CCB00D78225 /* DetailsViewController.swift in Sources */,
 				DACF25922BD7EB3900D78225 /* MovieDetailsDTO.swift in Sources */,
 				DACF258A2BD7E64200D78225 /* PosterDTO.swift in Sources */,
 				DACF259C2BD80A2E00D78225 /* APIResource.swift in Sources */,
