@@ -31,6 +31,13 @@
 		DACF25942BD7EB9A00D78225 /* PersonDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25932BD7EB9A00D78225 /* PersonDTO.swift */; };
 		DACF25962BD7ECB200D78225 /* LanguageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25952BD7ECB200D78225 /* LanguageDTO.swift */; };
 		DACF25982BD7F04500D78225 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25972BD7F04500D78225 /* Actor.swift */; };
+		DACF259C2BD80A2E00D78225 /* APIResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF259B2BD80A2E00D78225 /* APIResource.swift */; };
+		DACF259E2BD80CD800D78225 /* MoviesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF259D2BD80CD800D78225 /* MoviesResource.swift */; };
+		DACF25A02BD80E5300D78225 /* MovieDetailsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF259F2BD80E5300D78225 /* MovieDetailsResource.swift */; };
+		DACF25A22BD80EC400D78225 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25A12BD80EC400D78225 /* NetworkRequest.swift */; };
+		DACF25A42BD80FA800D78225 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25A32BD80FA800D78225 /* ImageRequest.swift */; };
+		DACF25A62BD810B000D78225 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25A52BD810B000D78225 /* APIRequest.swift */; };
+		DACF25A82BD8135900D78225 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25A72BD8135900D78225 /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +86,13 @@
 		DACF25932BD7EB9A00D78225 /* PersonDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDTO.swift; sourceTree = "<group>"; };
 		DACF25952BD7ECB200D78225 /* LanguageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDTO.swift; sourceTree = "<group>"; };
 		DACF25972BD7F04500D78225 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
+		DACF259B2BD80A2E00D78225 /* APIResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResource.swift; sourceTree = "<group>"; };
+		DACF259D2BD80CD800D78225 /* MoviesResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResource.swift; sourceTree = "<group>"; };
+		DACF259F2BD80E5300D78225 /* MovieDetailsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsResource.swift; sourceTree = "<group>"; };
+		DACF25A12BD80EC400D78225 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		DACF25A32BD80FA800D78225 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
+		DACF25A52BD810B000D78225 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		DACF25A72BD8135900D78225 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +143,7 @@
 		DAAAA9AF2BD6E01A0009D60C /* CinemaStar */ = {
 			isa = PBXGroup;
 			children = (
+				DACF25992BD807FA00D78225 /* Services */,
 				DACF25832BD7E3D500D78225 /* Models */,
 				DAAAA9B42BD6E01A0009D60C /* ViewController.swift */,
 				DAAAA9E02BD6E2C50009D60C /* Resources */,
@@ -210,6 +225,44 @@
 				DACF25952BD7ECB200D78225 /* LanguageDTO.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		DACF25992BD807FA00D78225 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DACF259A2BD8090D00D78225 /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DACF259A2BD8090D00D78225 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DACF25AA2BD815BE00D78225 /* Requests */,
+				DACF25A92BD815AF00D78225 /* Resources */,
+				DACF259B2BD80A2E00D78225 /* APIResource.swift */,
+				DACF25A12BD80EC400D78225 /* NetworkRequest.swift */,
+				DACF25A72BD8135900D78225 /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		DACF25A92BD815AF00D78225 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DACF259D2BD80CD800D78225 /* MoviesResource.swift */,
+				DACF259F2BD80E5300D78225 /* MovieDetailsResource.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DACF25AA2BD815BE00D78225 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				DACF25A32BD80FA800D78225 /* ImageRequest.swift */,
+				DACF25A52BD810B000D78225 /* APIRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,19 +445,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACF25942BD7EB9A00D78225 /* PersonDTO.swift in Sources */,
+				DACF25A62BD810B000D78225 /* APIRequest.swift in Sources */,
 				DACF258C2BD7E65400D78225 /* RatingDTO.swift in Sources */,
 				DAAAA9B52BD6E01A0009D60C /* ViewController.swift in Sources */,
+				DACF259E2BD80CD800D78225 /* MoviesResource.swift in Sources */,
 				DACF25802BD7D50E00D78225 /* ObservableObject.swift in Sources */,
 				DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */,
 				DACF258E2BD7E99000D78225 /* Movie.swift in Sources */,
 				DACF25902BD7EA1B00D78225 /* CountryDTO.swift in Sources */,
+				DACF25A82BD8135900D78225 /* NetworkError.swift in Sources */,
 				DACF25962BD7ECB200D78225 /* LanguageDTO.swift in Sources */,
+				DACF25A42BD80FA800D78225 /* ImageRequest.swift in Sources */,
 				DAAAA9B32BD6E01A0009D60C /* SceneDelegate.swift in Sources */,
+				DACF25A22BD80EC400D78225 /* NetworkRequest.swift in Sources */,
 				DACF25982BD7F04500D78225 /* Actor.swift in Sources */,
 				DACF25822BD7E32900D78225 /* MoviePreview.swift in Sources */,
 				DACF25862BD7E5E600D78225 /* WrapperDTO.swift in Sources */,
+				DACF25A02BD80E5300D78225 /* MovieDetailsResource.swift in Sources */,
 				DACF25922BD7EB3900D78225 /* MovieDetailsDTO.swift in Sources */,
 				DACF258A2BD7E64200D78225 /* PosterDTO.swift in Sources */,
+				DACF259C2BD80A2E00D78225 /* APIResource.swift in Sources */,
 				DACF25882BD7E61700D78225 /* MovieDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

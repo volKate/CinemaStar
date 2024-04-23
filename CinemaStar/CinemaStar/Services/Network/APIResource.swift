@@ -1,0 +1,21 @@
+// APIResource.swift
+// Copyright © RoadMap. All rights reserved.
+
+import Foundation
+
+/// Ресурс запрашиваемый через API
+protocol APIResource {
+    associatedtype ModelType: Decodable
+    /// Адрес ресурса
+    var path: String { get }
+    /// Параметр поиска
+    var query: String? { get }
+}
+
+extension APIResource {
+    var url: URL? {
+        let url = URL(string: "https://api.kinopoisk.dev/v1.4")?.appending(path: path)
+        guard let query else { return url }
+        return url?.appending(queryItems: [URLQueryItem(name: "query", value: query)])
+    }
+}
