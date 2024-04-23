@@ -22,5 +22,3 @@ final class ObservableObject<T> {
         bindings.append(binding)
     }
 }
-
-// 728PDV2-K4V418S-KX7KN0Q-XFDCZ5A

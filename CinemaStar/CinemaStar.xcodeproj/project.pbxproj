@@ -39,6 +39,7 @@
 		DACF25A82BD8135900D78225 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25A72BD8135900D78225 /* NetworkError.swift */; };
 		DACF25AE2BD8174900D78225 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25AD2BD8174900D78225 /* CatalogViewModel.swift */; };
 		DACF25B02BD8178000D78225 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25AF2BD8178000D78225 /* CatalogViewController.swift */; };
+		DACF25B22BD8285A00D78225 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25B12BD8285A00D78225 /* ViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		DACF25A72BD8135900D78225 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DACF25AD2BD8174900D78225 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
 		DACF25AF2BD8178000D78225 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		DACF25B12BD8285A00D78225 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				DACF257F2BD7D50E00D78225 /* ObservableObject.swift */,
+				DACF25B12BD8285A00D78225 /* ViewState.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				DAAAA9B32BD6E01A0009D60C /* SceneDelegate.swift in Sources */,
 				DACF25A22BD80EC400D78225 /* NetworkRequest.swift in Sources */,
 				DACF25982BD7F04500D78225 /* Actor.swift in Sources */,
+				DACF25B22BD8285A00D78225 /* ViewState.swift in Sources */,
 				DACF25822BD7E32900D78225 /* MoviePreview.swift in Sources */,
 				DACF25862BD7E5E600D78225 /* WrapperDTO.swift in Sources */,
 				DACF25B02BD8178000D78225 /* CatalogViewController.swift in Sources */,
