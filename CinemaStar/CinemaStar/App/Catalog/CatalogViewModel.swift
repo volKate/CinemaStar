@@ -10,7 +10,7 @@ protocol CatalogViewModelProtocol {
     /// Метод загрузки фильмов в каталоге
     func fetchMovies() async
     /// Метод открытия деталей о фильме
-    func showMovieDetails()
+    func showMovieDetails(id: Int)
 }
 
 /// ViewModel экрана католога фильмов
@@ -18,6 +18,11 @@ final class CatalogViewModel {
     typealias MoviePreviewsViewState = ViewState<[MoviePreview]>
     private(set) var viewState: ObservableObject<MoviePreviewsViewState> = .init(value: .initial)
     private var apiRequest: APIRequest<MoviesResource>?
+    private let coordinator: CatalogCoordinator
+
+    init(coordinator: CatalogCoordinator) {
+        self.coordinator = coordinator
+    }
 }
 
 // MARK: - CatalogViewModel + CatalogViewModelProtocol
@@ -37,7 +42,7 @@ extension CatalogViewModel: CatalogViewModelProtocol {
         }
     }
 
-    func showMovieDetails() {
-        // navigate to details page through coordinator
+    func showMovieDetails(id: Int) {
+        coordinator.openMovieDetails(id: id)
     }
 }

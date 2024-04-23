@@ -13,8 +13,12 @@ protocol APIResource {
 }
 
 extension APIResource {
+    private var baseUrl: String {
+        "https://api.kinopoisk.dev/v1.4"
+    }
+
     var url: URL? {
-        let url = URL(string: "https://api.kinopoisk.dev/v1.4")?.appending(path: path)
+        let url = URL(string: baseUrl)?.appending(path: path)
         guard let query else { return url }
         return url?.appending(queryItems: [URLQueryItem(name: "query", value: query)])
     }

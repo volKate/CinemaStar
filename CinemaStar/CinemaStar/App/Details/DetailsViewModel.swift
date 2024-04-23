@@ -3,7 +3,7 @@
 
 import Foundation
 
-/// протокол ViewModel деталей фильма
+/// Протокол ViewModel деталей фильма
 protocol DetailsViewModelProtocol {
     /// Состояние загрузки данных
     var viewState: ObservableObject<ViewState<MovieDetails>> { get }
@@ -18,9 +18,11 @@ final class DetailsViewModel {
     private(set) var viewState: ObservableObject<ViewState<MovieDetails>> = .init(value: .initial)
     private var apiRequest: APIRequest<MovieDetailsResource>?
     private let movieId: Int
+    private let coordinator: CatalogCoordinator
 
-    init(movieId: Int) {
+    init(movieId: Int, coordinator: CatalogCoordinator) {
         self.movieId = movieId
+        self.coordinator = coordinator
     }
 }
 
