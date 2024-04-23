@@ -15,7 +15,8 @@ protocol NetworkRequest: AnyObject {
 extension NetworkRequest {
     func load(_ url: URL) async throws -> ModelType {
         var request = URLRequest(url: url)
-        request.setValue("728PDV2-K4V418S-KX7KN0Q-XFDCZ5A", forHTTPHeaderField: "X-API-KEY")
+        let apiToken = try TokenStorage().getToken()
+        request.setValue(apiToken, forHTTPHeaderField: "X-API-KEY")
         let (data, _) = try await URLSession.shared.data(for: request)
         return try decode(data)
     }

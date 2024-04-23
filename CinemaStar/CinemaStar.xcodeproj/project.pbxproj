@@ -45,6 +45,8 @@
 		DACF25B92BD835D400D78225 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25B82BD835D400D78225 /* Coordinator.swift */; };
 		DACF25BB2BD8362D00D78225 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25BA2BD8362D00D78225 /* AppCoordinator.swift */; };
 		DACF25BE2BD839BC00D78225 /* CatalogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25BD2BD839BC00D78225 /* CatalogCoordinator.swift */; };
+		DACF25C22BD83FF200D78225 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25C12BD83FF200D78225 /* TokenStorage.swift */; };
+		DACF25C52BD840E200D78225 /* Keychain in Frameworks */ = {isa = PBXBuildFile; productRef = DACF25C42BD840E200D78225 /* Keychain */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,7 @@
 		DACF25B82BD835D400D78225 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DACF25BA2BD8362D00D78225 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		DACF25BD2BD839BC00D78225 /* CatalogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCoordinator.swift; sourceTree = "<group>"; };
+		DACF25C12BD83FF200D78225 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACF25C52BD840E200D78225 /* Keychain in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +145,7 @@
 				DAAAA9C62BD6E01F0009D60C /* CinemaStarTests */,
 				DAAAA9D02BD6E0200009D60C /* CinemaStarUITests */,
 				DAAAA9AE2BD6E01A0009D60C /* Products */,
+				DACF25C32BD840E200D78225 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,6 +250,7 @@
 		DACF25992BD807FA00D78225 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DACF25C02BD83FE200D78225 /* TokenStorage */,
 				DACF25BC2BD8363500D78225 /* Navigation */,
 				DACF259A2BD8090D00D78225 /* Network */,
 			);
@@ -318,6 +324,21 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		DACF25C02BD83FE200D78225 /* TokenStorage */ = {
+			isa = PBXGroup;
+			children = (
+				DACF25C12BD83FF200D78225 /* TokenStorage.swift */,
+			);
+			path = TokenStorage;
+			sourceTree = "<group>";
+		};
+		DACF25C32BD840E200D78225 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -336,6 +357,9 @@
 			dependencies = (
 			);
 			name = CinemaStar;
+			packageProductDependencies = (
+				DACF25C42BD840E200D78225 /* Keychain */,
+			);
 			productName = CinemaStar;
 			productReference = DAAAA9AD2BD6E01A0009D60C /* CinemaStar.app */;
 			productType = "com.apple.product-type.application";
@@ -409,6 +433,7 @@
 			);
 			mainGroup = DAAAA9A42BD6E01A0009D60C;
 			packageReferences = (
+				DACF25BF2BD83FC000D78225 /* XCRemoteSwiftPackageReference "Keychain.swift" */,
 			);
 			productRefGroup = DAAAA9AE2BD6E01A0009D60C /* Products */;
 			projectDirPath = "";
@@ -504,6 +529,7 @@
 				DACF259E2BD80CD800D78225 /* MoviesResource.swift in Sources */,
 				DACF25802BD7D50E00D78225 /* ObservableObject.swift in Sources */,
 				DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */,
+				DACF25C22BD83FF200D78225 /* TokenStorage.swift in Sources */,
 				DACF258E2BD7E99000D78225 /* MovieDetails.swift in Sources */,
 				DACF25902BD7EA1B00D78225 /* CountryDTO.swift in Sources */,
 				DACF25B92BD835D400D78225 /* Coordinator.swift in Sources */,
@@ -866,6 +892,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DACF25BF2BD83FC000D78225 /* XCRemoteSwiftPackageReference "Keychain.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groupeminaste/Keychain.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DACF25C42BD840E200D78225 /* Keychain */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DACF25BF2BD83FC000D78225 /* XCRemoteSwiftPackageReference "Keychain.swift" */;
+			productName = Keychain;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DAAAA9A52BD6E01A0009D60C /* Project object */;
 }

@@ -1,0 +1,15 @@
+{
+  "originHash" : "1641d2a323b430016d4ede22c59f6942b9d8b22b6fd83591af7e7c434898c037",
+  "pins" : [
+    {
+      "identity" : "keychain.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/groupeminaste/Keychain.swift.git",
+      "state" : {
+        "revision" : "d4b6bd007fd8432a59d341faa22ec0cd738d2d9d",
+        "version" : "1.0.5"
+      }
+    }
+  ],
+  "version" : 3
+}
