@@ -12,7 +12,7 @@ struct MoviePreview: Identifiable {
     /// Рейтинг на кинопоиске
     let kpRating: String
 
-    init(fromDTO movieDTO: MovieDTO) {
+    init(fromDTO movieDTO: MoviePreviewDTO) {
         id = movieDTO.id
         name = movieDTO.name
         posterUrl = movieDTO.poster.url

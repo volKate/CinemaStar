@@ -24,5 +24,5 @@ struct MovieDetailsDTO: Decodable {
     /// Языки фильма
     let spokenLanguages: [LanguageDTO]?
     /// Похожие фильмы
-    let similarMovies: [MovieDTO]?
+    let similarMovies: [MoviePreviewDTO]?
 }

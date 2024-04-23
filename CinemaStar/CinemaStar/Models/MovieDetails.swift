@@ -1,8 +1,8 @@
-// Movie.swift
+// MovieDetails.swift
 // Copyright © RoadMap. All rights reserved.
 
 /// Детали фильма
-struct Movie: Identifiable {
+struct MovieDetails: Identifiable {
     enum MovieType: String {
         case series = "tv-series"
         case movie

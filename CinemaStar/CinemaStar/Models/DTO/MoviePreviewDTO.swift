@@ -1,8 +1,8 @@
-// MovieDTO.swift
+// MoviePreviewDTO.swift
 // Copyright © RoadMap. All rights reserved.
 
 /// Фильм
-struct MovieDTO: Decodable {
+struct MoviePreviewDTO: Decodable {
     /// Идентификатор
     let id: Int
     /// Название
