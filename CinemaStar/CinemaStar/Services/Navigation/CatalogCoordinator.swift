@@ -15,7 +15,7 @@ final class CatalogCoordinator: Coordinator {
     }
 
     func openMovieDetails(id: Int) {
-        let detailsViewModel = DetailsViewModel(movieId: id, coordinator: self)
+        let detailsViewModel = DetailsViewModel(movieId: id, coordinator: self, storageService: UserDefaultsStorage())
         let detailsViewController = DetailsViewController(detailsViewModel: detailsViewModel)
         navigationController?.pushViewController(detailsViewController, animated: true)
     }
