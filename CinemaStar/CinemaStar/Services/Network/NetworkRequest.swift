@@ -7,17 +7,23 @@ import Foundation
 protocol NetworkRequest: AnyObject {
     associatedtype ModelType
     /// Метод декодирования данных
-    func decode(_ data: Data) throws -> ModelType
+    func decode(_ data: Data) -> ModelType?
     /// Метод запуска запроса
-    func execute() async throws -> ModelType
+    func execute(withCompletion completion: @escaping (ModelType?) -> Void)
 }
 
 extension NetworkRequest {
-    func load(_ url: URL) async throws -> ModelType {
+    func load(_ url: URL, withCompletion completion: @escaping (ModelType?) -> Void) {
         var request = URLRequest(url: url)
-        let apiToken = try TokenStorage().getToken()
+        guard let apiToken = try? TokenStorage().getToken() else { return }
         request.setValue(apiToken, forHTTPHeaderField: "X-API-KEY")
-        let (data, _) = try await URLSession.shared.data(for: request)
-        return try decode(data)
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, _, _ in
+            guard let data = data, let value = self?.decode(data) else {
+                DispatchQueue.main.async { completion(nil) }
+                return
+            }
+            DispatchQueue.main.async { completion(value) }
+        }
+        task.resume()
     }
 }

@@ -29,17 +29,17 @@ final class CatalogViewModel {
 
 extension CatalogViewModel: CatalogViewModelProtocol {
     func fetchMovies() async {
-        viewState.value = .loading
-        let resource = MoviesResource()
-        let request = APIRequest(resource: resource)
-        apiRequest = request
-        do {
-            let moviesDTO = try await request.execute()
-            let moviePreviews = moviesDTO.docs.map { MoviePreview(fromDTO: $0) }
-            viewState.value = .data(moviePreviews)
-        } catch {
-            viewState.value = .error(error)
-        }
+//        viewState.value = .loading
+//        let resource = MoviesResource()
+//        let request = APIRequest(resource: resource)
+//        apiRequest = request
+//        do {
+//            let moviesDTO = try await request.execute()
+//            let moviePreviews = moviesDTO.docs.map { MoviePreview(fromDTO: $0) }
+//            viewState.value = .data(moviePreviews)
+//        } catch {
+//            viewState.value = .error(error)
+//        }
     }
 
     func showMovieDetails(id: Int) {

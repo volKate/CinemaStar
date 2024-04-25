@@ -7,4 +7,6 @@ import Foundation
 enum NetworkError: Error {
     /// Невалидный url
     case invalidUrl
+    /// Нет данных
+    case noData
 }

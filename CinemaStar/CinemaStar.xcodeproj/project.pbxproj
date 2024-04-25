@@ -49,6 +49,16 @@
 		DACF25C52BD840E200D78225 /* Keychain in Frameworks */ = {isa = PBXBuildFile; productRef = DACF25C42BD840E200D78225 /* Keychain */; };
 		DACF25C82BD849E000D78225 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25C72BD849E000D78225 /* Storage.swift */; };
 		DACF25CA2BD84B4100D78225 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25C92BD84B4100D78225 /* UserDefaultsStorage.swift */; };
+		DACF25CD2BD99AA700D78225 /* DetailsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25CC2BD99AA700D78225 /* DetailsTableView.swift */; };
+		DACF25D02BD99B1300D78225 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DACF25CF2BD99B1300D78225 /* SnapKit */; };
+		DACF25D32BD99DAA00D78225 /* AppBackgroundGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25D22BD99DAA00D78225 /* AppBackgroundGradientLayer.swift */; };
+		DACF25D52BDAD5E000D78225 /* DetailsHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25D42BDAD5E000D78225 /* DetailsHeaderTableViewCell.swift */; };
+		DACF25D82BDAD8FF00D78225 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25D72BDAD8FF00D78225 /* UIFont+Extension.swift */; };
+		DACF25DA2BDAE0EE00D78225 /* DetailsWatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25D92BDAE0EE00D78225 /* DetailsWatchTableViewCell.swift */; };
+		DACF25DC2BDAE6F600D78225 /* DetailsDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25DB2BDAE6F600D78225 /* DetailsDescriptionTableViewCell.swift */; };
+		DACF25DE2BDAEA2400D78225 /* DetailsReleaseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25DD2BDAEA2400D78225 /* DetailsReleaseInfoTableViewCell.swift */; };
+		DACF25E02BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25DF2BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift */; };
+		DACF25E22BDAF84400D78225 /* LoadImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25E12BDAF84400D78225 /* LoadImageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +124,15 @@
 		DACF25C12BD83FF200D78225 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		DACF25C72BD849E000D78225 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		DACF25C92BD84B4100D78225 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		DACF25CC2BD99AA700D78225 /* DetailsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableView.swift; sourceTree = "<group>"; };
+		DACF25D22BD99DAA00D78225 /* AppBackgroundGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundGradientLayer.swift; sourceTree = "<group>"; };
+		DACF25D42BDAD5E000D78225 /* DetailsHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		DACF25D72BDAD8FF00D78225 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		DACF25D92BDAE0EE00D78225 /* DetailsWatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWatchTableViewCell.swift; sourceTree = "<group>"; };
+		DACF25DB2BDAE6F600D78225 /* DetailsDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		DACF25DD2BDAEA2400D78225 /* DetailsReleaseInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsReleaseInfoTableViewCell.swift; sourceTree = "<group>"; };
+		DACF25DF2BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLanguageTableViewCell.swift; sourceTree = "<group>"; };
+		DACF25E12BDAF84400D78225 /* LoadImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACF25C52BD840E200D78225 /* Keychain in Frameworks */,
+				DACF25D02BD99B1300D78225 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +190,7 @@
 				DACF25992BD807FA00D78225 /* Services */,
 				DACF25832BD7E3D500D78225 /* Models */,
 				DAAAA9E02BD6E2C50009D60C /* Resources */,
+				DACF25D62BDAD8E600D78225 /* Extensions */,
 				DACF257E2BD7D4EF00D78225 /* Utils */,
 				DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */,
 				DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */,
@@ -270,6 +291,7 @@
 				DACF259B2BD80A2E00D78225 /* APIResource.swift */,
 				DACF25A12BD80EC400D78225 /* NetworkRequest.swift */,
 				DACF25A72BD8135900D78225 /* NetworkError.swift */,
+				DACF25E12BDAF84400D78225 /* LoadImageService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -297,6 +319,7 @@
 			children = (
 				DACF25B32BD82CB700D78225 /* Details */,
 				DACF25AC2BD8173100D78225 /* Catalog */,
+				DACF25D12BD99D8F00D78225 /* Shared */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -314,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				DACF25B62BD82D0900D78225 /* DetailsViewModel.swift */,
-				DACF25B42BD82CCB00D78225 /* DetailsViewController.swift */,
+				DACF25CB2BD99A7F00D78225 /* View */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -353,6 +376,36 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		DACF25CB2BD99A7F00D78225 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DACF25B42BD82CCB00D78225 /* DetailsViewController.swift */,
+				DACF25CC2BD99AA700D78225 /* DetailsTableView.swift */,
+				DACF25D42BDAD5E000D78225 /* DetailsHeaderTableViewCell.swift */,
+				DACF25D92BDAE0EE00D78225 /* DetailsWatchTableViewCell.swift */,
+				DACF25DB2BDAE6F600D78225 /* DetailsDescriptionTableViewCell.swift */,
+				DACF25DD2BDAEA2400D78225 /* DetailsReleaseInfoTableViewCell.swift */,
+				DACF25DF2BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DACF25D12BD99D8F00D78225 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DACF25D22BD99DAA00D78225 /* AppBackgroundGradientLayer.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		DACF25D62BDAD8E600D78225 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DACF25D72BDAD8FF00D78225 /* UIFont+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -373,6 +426,7 @@
 			name = CinemaStar;
 			packageProductDependencies = (
 				DACF25C42BD840E200D78225 /* Keychain */,
+				DACF25CF2BD99B1300D78225 /* SnapKit */,
 			);
 			productName = CinemaStar;
 			productReference = DAAAA9AD2BD6E01A0009D60C /* CinemaStar.app */;
@@ -448,6 +502,7 @@
 			mainGroup = DAAAA9A42BD6E01A0009D60C;
 			packageReferences = (
 				DACF25BF2BD83FC000D78225 /* XCRemoteSwiftPackageReference "Keychain.swift" */,
+				DACF25CE2BD99B0500D78225 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = DAAAA9AE2BD6E01A0009D60C /* Products */;
 			projectDirPath = "";
@@ -542,30 +597,39 @@
 				DACF25A62BD810B000D78225 /* APIRequest.swift in Sources */,
 				DACF258C2BD7E65400D78225 /* RatingDTO.swift in Sources */,
 				DACF259E2BD80CD800D78225 /* MoviesResource.swift in Sources */,
+				DACF25D82BDAD8FF00D78225 /* UIFont+Extension.swift in Sources */,
+				DACF25E22BDAF84400D78225 /* LoadImageService.swift in Sources */,
 				DACF25802BD7D50E00D78225 /* ObservableObject.swift in Sources */,
 				DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */,
 				DACF25C22BD83FF200D78225 /* TokenStorage.swift in Sources */,
+				DACF25E02BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift in Sources */,
 				DACF258E2BD7E99000D78225 /* MovieDetails.swift in Sources */,
+				DACF25D32BD99DAA00D78225 /* AppBackgroundGradientLayer.swift in Sources */,
 				DACF25902BD7EA1B00D78225 /* CountryDTO.swift in Sources */,
 				DACF25B92BD835D400D78225 /* Coordinator.swift in Sources */,
 				DACF25A82BD8135900D78225 /* NetworkError.swift in Sources */,
 				DACF25962BD7ECB200D78225 /* LanguageDTO.swift in Sources */,
 				DACF25A42BD80FA800D78225 /* ImageRequest.swift in Sources */,
+				DACF25DC2BDAE6F600D78225 /* DetailsDescriptionTableViewCell.swift in Sources */,
 				DAAAA9B32BD6E01A0009D60C /* SceneDelegate.swift in Sources */,
 				DACF25A22BD80EC400D78225 /* NetworkRequest.swift in Sources */,
 				DACF25982BD7F04500D78225 /* Actor.swift in Sources */,
+				DACF25DA2BDAE0EE00D78225 /* DetailsWatchTableViewCell.swift in Sources */,
 				DACF25B22BD8285A00D78225 /* ViewState.swift in Sources */,
 				DACF25822BD7E32900D78225 /* MoviePreview.swift in Sources */,
 				DACF25C82BD849E000D78225 /* Storage.swift in Sources */,
 				DACF25862BD7E5E600D78225 /* WrapperDTO.swift in Sources */,
 				DACF25B72BD82D0900D78225 /* DetailsViewModel.swift in Sources */,
+				DACF25DE2BDAEA2400D78225 /* DetailsReleaseInfoTableViewCell.swift in Sources */,
 				DACF25B02BD8178000D78225 /* CatalogViewController.swift in Sources */,
 				DACF25BB2BD8362D00D78225 /* AppCoordinator.swift in Sources */,
 				DACF25A02BD80E5300D78225 /* MovieDetailsResource.swift in Sources */,
 				DACF25B52BD82CCB00D78225 /* DetailsViewController.swift in Sources */,
 				DACF25922BD7EB3900D78225 /* MovieDetailsDTO.swift in Sources */,
+				DACF25D52BDAD5E000D78225 /* DetailsHeaderTableViewCell.swift in Sources */,
 				DACF258A2BD7E64200D78225 /* PosterDTO.swift in Sources */,
 				DACF259C2BD80A2E00D78225 /* APIResource.swift in Sources */,
+				DACF25CD2BD99AA700D78225 /* DetailsTableView.swift in Sources */,
 				DACF25AE2BD8174900D78225 /* CatalogViewModel.swift in Sources */,
 				DACF25882BD7E61700D78225 /* MoviePreviewDTO.swift in Sources */,
 			);
@@ -918,6 +982,14 @@
 				minimumVersion = 1.0.5;
 			};
 		};
+		DACF25CE2BD99B0500D78225 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -925,6 +997,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DACF25BF2BD83FC000D78225 /* XCRemoteSwiftPackageReference "Keychain.swift" */;
 			productName = Keychain;
+		};
+		DACF25CF2BD99B1300D78225 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DACF25CE2BD99B0500D78225 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

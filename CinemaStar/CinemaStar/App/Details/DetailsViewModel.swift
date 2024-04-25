@@ -10,11 +10,13 @@ protocol DetailsViewModelProtocol {
     /// Состояние "в избранном"
     var isFavorite: ObservableObject<Bool> { get }
     /// Метод загрузки деталей фильма
-    func fetchMovieDetails() async
+    func fetchMovieDetails()
     /// Метод воспроизведение фильма
     func watchMovie()
     /// Метод обновления состояния "в избранном"
     func handleToggleFavorite()
+    /// Метод загрузки изображения
+    func loadImage(with url: URL, completion: @escaping (Data?) -> Void)
 }
 
 /// ViewModel экрана деталей о фильме
@@ -30,11 +32,18 @@ final class DetailsViewModel {
     private let movieId: Int
     private let coordinator: CatalogCoordinator
     private let storageService: Storage
+    private let loadImageService: LoadImageServiceProtocol
 
-    init(movieId: Int, coordinator: CatalogCoordinator, storageService: Storage) {
+    init(
+        movieId: Int,
+        coordinator: CatalogCoordinator,
+        storageService: Storage,
+        loadImageService: LoadImageServiceProtocol
+    ) {
         self.movieId = movieId
         self.coordinator = coordinator
         self.storageService = storageService
+        self.loadImageService = loadImageService
         setupBindings()
     }
 
@@ -66,6 +75,10 @@ final class DetailsViewModel {
 // MARK: - DetailsViewModel + DetailsViewModelProtocol
 
 extension DetailsViewModel: DetailsViewModelProtocol {
+    func loadImage(with url: URL, completion: @escaping (Data?) -> Void) {
+        loadImageService.load(with: url, completion: completion)
+    }
+
     func handleToggleFavorite() {
         isFavorite.value.toggle()
         var favoriteMovies = getFavoriteMovies()
@@ -87,17 +100,21 @@ extension DetailsViewModel: DetailsViewModelProtocol {
         syncIsFavoriteState(id: movieId)
     }
 
-    func fetchMovieDetails() async {
+    func fetchMovieDetails() {
         viewState.value = .loading
         let resource = MovieDetailsResource(id: movieId)
         let request = APIRequest(resource: resource)
         apiRequest = request
-        do {
-            let movieDetailsDTO = try await request.execute()
-            let movieDetails = MovieDetails(fromDTO: movieDetailsDTO)
-            viewState.value = .data(movieDetails)
-        } catch {
-            viewState.value = .error(error)
+
+        request.execute { movieDetailsDTO in
+            DispatchQueue.main.async { [weak self] in
+                guard let movieDetailsDTO else {
+                    self?.viewState.value = .error(NetworkError.noData)
+                    return
+                }
+                let movieDetails = MovieDetails(fromDTO: movieDetailsDTO)
+                self?.viewState.value = .data(movieDetails)
+            }
         }
     }
 
