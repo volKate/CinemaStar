@@ -1,6 +1,8 @@
 // MoviePreview.swift
 // Copyright © RoadMap. All rights reserved.
 
+import Foundation
+
 /// Превью фильма
 struct MoviePreview: Identifiable {
     /// Идентификатор
@@ -8,14 +10,14 @@ struct MoviePreview: Identifiable {
     /// Название
     let name: String
     /// Url постера
-    let posterUrl: String
+    let posterUrl: URL?
     /// Рейтинг на кинопоиске
     let kpRating: String
 
     init(fromDTO movieDTO: MoviePreviewDTO) {
         id = movieDTO.id
         name = movieDTO.name
-        posterUrl = movieDTO.poster.url
+        posterUrl = URL(string: movieDTO.poster.url)
         if let rating = movieDTO.rating?.kp {
             kpRating = "⭐ \(String(format: "%.1f", rating))"
         } else {

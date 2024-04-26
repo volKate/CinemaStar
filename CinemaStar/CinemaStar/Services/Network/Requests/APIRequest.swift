@@ -15,14 +15,15 @@ final class APIRequest<Resource: APIResource> {
 // MARK: - APIRequest + NetworkRequest
 
 extension APIRequest: NetworkRequest {
-    func decode(_ data: Data) throws -> Resource.ModelType {
+    func decode(_ data: Data) -> Resource.ModelType? {
         let decoder = JSONDecoder()
-        let decodedData = try decoder.decode(Resource.ModelType.self, from: data)
+        decoder.dateDecodingStrategy = .secondsSince1970
+        let decodedData = try? decoder.decode(Resource.ModelType.self, from: data)
         return decodedData
     }
 
-    func execute() async throws -> Resource.ModelType {
-        guard let url = resource.url else { throw NetworkError.invalidUrl }
-        return try await load(url)
+    func execute(withCompletion completion: @escaping (Resource.ModelType?) -> Void) {
+        guard let url = resource.url else { return }
+        load(url, withCompletion: completion)
     }
 }

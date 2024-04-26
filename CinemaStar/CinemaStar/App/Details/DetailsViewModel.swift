@@ -9,44 +9,52 @@ protocol DetailsViewModelProtocol {
     var viewState: ObservableObject<ViewState<MovieDetails>> { get }
     /// Состояние "в избранном"
     var isFavorite: ObservableObject<Bool> { get }
+    /// Системное сообщение
+    var alertMessage: ObservableObject<AlertMessage?> { get }
     /// Метод загрузки деталей фильма
-    func fetchMovieDetails() async
+    func fetchMovieDetails()
     /// Метод воспроизведение фильма
     func watchMovie()
     /// Метод обновления состояния "в избранном"
     func handleToggleFavorite()
+    /// Метод загрузки изображения
+    func loadImage(with url: URL, completion: @escaping (Data?) -> Void)
 }
 
 /// ViewModel экрана деталей о фильме
 final class DetailsViewModel {
     private enum Constants {
         static let favoritesStorageKey = "favoriteMovies"
+        static let inDevelopmentTitle = "Упс!"
+        static let inDevelopmentMessage = "Функционал в разработке :("
+        static let errorTitle = "Ошибка"
+        static let errorMessage = "Произошла ошибка загрузки, попробуйте снова"
     }
 
     private(set) var viewState: ObservableObject<ViewState<MovieDetails>> = .init(value: .initial)
     private(set) var isFavorite: ObservableObject<Bool> = .init(value: false)
+    private(set) var alertMessage: ObservableObject<AlertMessage?> = .init(value: nil)
 
     private var apiRequest: APIRequest<MovieDetailsResource>?
     private let movieId: Int
     private let coordinator: CatalogCoordinator
     private let storageService: Storage
+    private let loadImageService: LoadImageServiceProtocol
+    private let networkService: NetworkServiceProtocol
 
-    init(movieId: Int, coordinator: CatalogCoordinator, storageService: Storage) {
+    init(
+        movieId: Int,
+        coordinator: CatalogCoordinator,
+        storageService: Storage,
+        loadImageService: LoadImageServiceProtocol,
+        networkService: NetworkServiceProtocol
+    ) {
         self.movieId = movieId
         self.coordinator = coordinator
         self.storageService = storageService
-        setupBindings()
-    }
-
-    private func setupBindings() {
-        viewState.bind { [weak self] viewState in
-            switch viewState {
-            case let .data(data):
-                self?.syncIsFavoriteState(id: data.id)
-            default:
-                return
-            }
-        }
+        self.loadImageService = loadImageService
+        self.networkService = networkService
+        syncIsFavoriteState(id: movieId)
     }
 
     private func getFavoriteMovies() -> [Int] {
@@ -66,6 +74,10 @@ final class DetailsViewModel {
 // MARK: - DetailsViewModel + DetailsViewModelProtocol
 
 extension DetailsViewModel: DetailsViewModelProtocol {
+    func loadImage(with url: URL, completion: @escaping (Data?) -> Void) {
+        loadImageService.load(with: url, completion: completion)
+    }
+
     func handleToggleFavorite() {
         isFavorite.value.toggle()
         var favoriteMovies = getFavoriteMovies()
@@ -87,21 +99,26 @@ extension DetailsViewModel: DetailsViewModelProtocol {
         syncIsFavoriteState(id: movieId)
     }
 
-    func fetchMovieDetails() async {
+    func fetchMovieDetails() {
         viewState.value = .loading
-        let resource = MovieDetailsResource(id: movieId)
-        let request = APIRequest(resource: resource)
-        apiRequest = request
-        do {
-            let movieDetailsDTO = try await request.execute()
-            let movieDetails = MovieDetails(fromDTO: movieDetailsDTO)
-            viewState.value = .data(movieDetails)
-        } catch {
-            viewState.value = .error(error)
+
+        networkService.loadMovieDetails(id: movieId) { [weak self] movieDetails in
+            guard let movieDetails else {
+                self?.viewState.value = .error(NetworkError.noData)
+                self?.alertMessage.value = AlertMessage(
+                    title: Constants.errorTitle,
+                    description: Constants.errorMessage
+                )
+                return
+            }
+            self?.viewState.value = .data(movieDetails)
         }
     }
 
     func watchMovie() {
-        // show alert that feature is not implemented
+        alertMessage.value = AlertMessage(
+            title: Constants.inDevelopmentTitle,
+            description: Constants.inDevelopmentMessage
+        )
     }
 }

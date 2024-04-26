@@ -14,7 +14,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func configureWindow(with scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        coordinator = AppCoordinator()
         window?.makeKeyAndVisible()
+        window?.backgroundColor = .white
+        coordinator = AppCoordinator()
+        coordinator?.start()
     }
 }

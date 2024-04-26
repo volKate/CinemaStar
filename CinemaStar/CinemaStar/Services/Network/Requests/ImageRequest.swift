@@ -15,12 +15,11 @@ final class ImageRequest {
 // MARK: - ImageRequest + NetworkRequest
 
 extension ImageRequest: NetworkRequest {
-    func decode(_ data: Data) throws -> URL? {
-        let dataString = data.base64EncodedString()
-        return URL(string: "data:image/png;base64," + dataString)
+    func decode(_ data: Data) -> Data? {
+        data
     }
 
-    func execute() async throws -> URL? {
-        try await load(url)
+    func execute(withCompletion completion: @escaping (Data?) -> Void) {
+        load(url, withCompletion: completion)
     }
 }

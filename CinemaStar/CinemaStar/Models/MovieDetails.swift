@@ -1,11 +1,25 @@
 // MovieDetails.swift
 // Copyright © RoadMap. All rights reserved.
 
+import Foundation
+
 /// Детали фильма
 struct MovieDetails: Identifiable {
+    /// Тип картины
     enum MovieType: String {
+        /// Сериал
         case series = "tv-series"
+        /// Фильм
         case movie
+
+        func stringValue() -> String {
+            switch self {
+            case .series:
+                return "Сериал"
+            case .movie:
+                return "Фильм"
+            }
+        }
     }
 
     /// Идентификатор
@@ -13,17 +27,13 @@ struct MovieDetails: Identifiable {
     /// Название
     let name: String
     /// Url постера
-    let posterUrl: String
+    let posterUrl: URL?
     /// Рейтинг на кинопоиске
-    let kpRating: Double?
+    let kpRating: String
     /// Описание
     let description: String
-    /// Год выпуска
-    let releaseYear: Int
-    /// Страна выпуска
-    let countryOfOrigin: String?
-    /// Тип картины (фильм/сериал)
-    let type: MovieType?
+    /// Информация о релизе
+    let releaseInfo: String
     /// Актеры
     let actors: [Actor]
     /// Язык картины
@@ -34,12 +44,14 @@ struct MovieDetails: Identifiable {
     init(fromDTO movieDTO: MovieDetailsDTO) {
         id = movieDTO.id
         name = movieDTO.name
-        posterUrl = movieDTO.poster.url
-        kpRating = movieDTO.rating.kp
+        posterUrl = URL(string: movieDTO.poster.url)
+        kpRating = "⭐ \(String(format: "%.1f", movieDTO.rating.kp))"
         description = movieDTO.description
-        releaseYear = movieDTO.year
-        countryOfOrigin = movieDTO.countries.first?.name
-        type = MovieType(rawValue: movieDTO.type)
+        releaseInfo = [
+            String(movieDTO.year),
+            movieDTO.countries.first?.name,
+            MovieType(rawValue: movieDTO.type)?.stringValue()
+        ].compactMap { $0 }.joined(separator: " / ")
         actors = movieDTO.persons.map { Actor(fromDTO: $0) }
         language = movieDTO.spokenLanguages?.first?.name
         similarMovies = movieDTO.similarMovies?.map { MoviePreview(fromDTO: $0) }
