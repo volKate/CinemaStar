@@ -36,7 +36,8 @@ final class LoadImageProxy: LoadImageServiceProtocol {
             return
         }
 
-        let imageUrl = documentsDirectory.appendingPathComponent(url.lastPathComponent)
+        let stringHash = String(url.relativePath.hashValue)
+        let imageUrl = documentsDirectory.appendingPathComponent(stringHash)
         if fileManager.fileExists(atPath: imageUrl.path) {
             let imageData = try? Data(contentsOf: imageUrl)
             completion(imageData)

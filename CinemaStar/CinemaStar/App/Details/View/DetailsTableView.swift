@@ -73,6 +73,11 @@ final class DetailsTableView: UITableView {
         register(DetailsReleaseInfoTableViewCell.self, forCellReuseIdentifier: DetailsReleaseInfoTableViewCell.cellID)
         register(DetailsLanguageTableViewCell.self, forCellReuseIdentifier: DetailsLanguageTableViewCell.cellID)
         register(DetailsShimmerTableViewCell.self, forCellReuseIdentifier: DetailsShimmerTableViewCell.cellID)
+        register(DetailsActorsTableViewCell.self, forCellReuseIdentifier: DetailsActorsTableViewCell.cellID)
+        register(
+            DetailsRecommendationsTableViewCell.self,
+            forCellReuseIdentifier: DetailsRecommendationsTableViewCell.cellID
+        )
     }
 }
 
@@ -148,6 +153,23 @@ extension DetailsTableView: UITableViewDataSource {
                         .cellID
                 ) as? DetailsLanguageTableViewCell else { return .init() }
             cell.configure(language: movieDetails.language ?? "")
+            return cell
+        case .cast:
+            guard let cell = tableView
+                .dequeueReusableCell(
+                    withIdentifier: DetailsActorsTableViewCell
+                        .cellID
+                ) as? DetailsActorsTableViewCell else { return .init() }
+            cell.configure(actors: movieDetails.actors, viewModel: viewModel)
+            return cell
+
+        case .watchMore:
+            guard let cell = tableView
+                .dequeueReusableCell(
+                    withIdentifier: DetailsRecommendationsTableViewCell
+                        .cellID
+                ) as? DetailsRecommendationsTableViewCell else { return .init() }
+            cell.configure(previews: movieDetails.similarMovies ?? [], viewModel: viewModel)
             return cell
         default:
             return .init()
