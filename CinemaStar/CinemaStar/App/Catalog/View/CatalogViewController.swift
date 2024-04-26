@@ -33,6 +33,10 @@ final class CatalogViewController: UIViewController {
             PreviewCollectionViewCell.self,
             forCellWithReuseIdentifier: PreviewCollectionViewCell.cellID
         )
+        collectionView.register(
+            MovieShimmerCollectionViewCell.self,
+            forCellWithReuseIdentifier: MovieShimmerCollectionViewCell.cellID
+        )
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
@@ -41,7 +45,7 @@ final class CatalogViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private var movies: [MoviePreview] = []
+    private var viewState: ViewState<[MoviePreview]>?
     private let catalogViewModel: CatalogViewModelProtocol?
 
     // MARK: - Initializers
@@ -63,12 +67,7 @@ final class CatalogViewController: UIViewController {
         setupView()
         catalogViewModel?.fetchMovies()
         catalogViewModel?.viewState.bind { [weak self] viewState in
-            switch viewState {
-            case let .data(movies):
-                self?.movies = movies
-            default:
-                self?.movies = []
-            }
+            self?.viewState = viewState
             self?.moviesCollectionView.reloadData()
         }
     }
@@ -106,31 +105,56 @@ final class CatalogViewController: UIViewController {
 
 extension CatalogViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        movies.count
+        switch viewState {
+        case let .data(movies):
+            return movies.count
+        case .loading:
+            return 6
+        default:
+            return 0
+        }
     }
 
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let movie = movies[indexPath.item]
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: PreviewCollectionViewCell.cellID,
-            for: indexPath
-        ) as? PreviewCollectionViewCell else { return .init() }
-        cell.configure(name: "\(movie.name)\n\(movie.kpRating)")
-        if let url = movie.posterUrl {
-            catalogViewModel?.loadImage(with: url, completion: { data in
-                guard let data else { return }
-                cell.setImage(data: data)
-            })
+        switch viewState {
+        case let .data(movies):
+            let movie = movies[indexPath.item]
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: PreviewCollectionViewCell.cellID,
+                for: indexPath
+            ) as? PreviewCollectionViewCell else { return .init() }
+            cell.configure(name: "\(movie.name)\n\(movie.kpRating)")
+            if let url = movie.posterUrl {
+                catalogViewModel?.loadImage(with: url, completion: { data in
+                    guard let data else { return }
+                    cell.setImage(data: data)
+                })
+            }
+            collectionView.isScrollEnabled = true
+            return cell
+        case .loading:
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: MovieShimmerCollectionViewCell.cellID,
+                for: indexPath
+            ) as? MovieShimmerCollectionViewCell else { return .init() }
+            collectionView.isScrollEnabled = false
+            return cell
+        default:
+            return .init()
         }
-        return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movie = movies[indexPath.item]
-        catalogViewModel?.showMovieDetails(id: movie.id)
+        switch viewState {
+        case let .data(movies):
+            let movie = movies[indexPath.item]
+            catalogViewModel?.showMovieDetails(id: movie.id)
+        default:
+            return
+        }
     }
 }
 

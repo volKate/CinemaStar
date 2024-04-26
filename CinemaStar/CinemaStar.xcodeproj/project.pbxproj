@@ -66,6 +66,7 @@
 		DAD365CF2BDBE723009A223D /* DetailsRecommendationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365CE2BDBE723009A223D /* DetailsRecommendationsTableViewCell.swift */; };
 		DAD365D12BDBE75C009A223D /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D02BDBE75C009A223D /* PreviewCollectionViewCell.swift */; };
 		DAD365D62BDC1746009A223D /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D52BDC1746009A223D /* AlertMessage.swift */; };
+		DAD365D82BDC2830009A223D /* MovieShimmerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D72BDC2830009A223D /* MovieShimmerCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,7 @@
 		DAD365CE2BDBE723009A223D /* DetailsRecommendationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRecommendationsTableViewCell.swift; sourceTree = "<group>"; };
 		DAD365D02BDBE75C009A223D /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		DAD365D52BDC1746009A223D /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
+		DAD365D72BDC2830009A223D /* MovieShimmerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieShimmerCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				DACF25AF2BD8178000D78225 /* CatalogViewController.swift */,
+				DAD365D72BDC2830009A223D /* MovieShimmerCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACF25CA2BD84B4100D78225 /* UserDefaultsStorage.swift in Sources */,
+				DAD365D82BDC2830009A223D /* MovieShimmerCollectionViewCell.swift in Sources */,
 				DAD365CD2BDBDB46009A223D /* ActorCollectionViewCell.swift in Sources */,
 				DACF25BE2BD839BC00D78225 /* CatalogCoordinator.swift in Sources */,
 				DACF25942BD7EB9A00D78225 /* PersonDTO.swift in Sources */,
