@@ -65,6 +65,7 @@
 		DAD365CD2BDBDB46009A223D /* ActorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365CC2BDBDB46009A223D /* ActorCollectionViewCell.swift */; };
 		DAD365CF2BDBE723009A223D /* DetailsRecommendationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365CE2BDBE723009A223D /* DetailsRecommendationsTableViewCell.swift */; };
 		DAD365D12BDBE75C009A223D /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D02BDBE75C009A223D /* PreviewCollectionViewCell.swift */; };
+		DAD365D62BDC1746009A223D /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D52BDC1746009A223D /* AlertMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		DAD365CC2BDBDB46009A223D /* ActorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorCollectionViewCell.swift; sourceTree = "<group>"; };
 		DAD365CE2BDBE723009A223D /* DetailsRecommendationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRecommendationsTableViewCell.swift; sourceTree = "<group>"; };
 		DAD365D02BDBE75C009A223D /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		DAD365D52BDC1746009A223D /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			children = (
 				DACF257F2BD7D50E00D78225 /* ObservableObject.swift */,
 				DACF25B12BD8285A00D78225 /* ViewState.swift */,
+				DAD365D52BDC1746009A223D /* AlertMessage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				DACF25D82BDAD8FF00D78225 /* UIFont+Extension.swift in Sources */,
 				DACF25E22BDAF84400D78225 /* LoadImageService.swift in Sources */,
 				DACF25802BD7D50E00D78225 /* ObservableObject.swift in Sources */,
+				DAD365D62BDC1746009A223D /* AlertMessage.swift in Sources */,
 				DACF25E62BDB0F7000D78225 /* ShimmerLayer.swift in Sources */,
 				DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */,
 				DACF25C22BD83FF200D78225 /* TokenStorage.swift in Sources */,

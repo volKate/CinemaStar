@@ -9,6 +9,8 @@ protocol DetailsViewModelProtocol {
     var viewState: ObservableObject<ViewState<MovieDetails>> { get }
     /// Состояние "в избранном"
     var isFavorite: ObservableObject<Bool> { get }
+    /// Системное сообщение
+    var alertMessage: ObservableObject<AlertMessage?> { get }
     /// Метод загрузки деталей фильма
     func fetchMovieDetails()
     /// Метод воспроизведение фильма
@@ -23,10 +25,15 @@ protocol DetailsViewModelProtocol {
 final class DetailsViewModel {
     private enum Constants {
         static let favoritesStorageKey = "favoriteMovies"
+        static let inDevelopmentTitle = "Упс!"
+        static let inDevelopmentMessage = "Функционал в разработке :("
+        static let errorTitle = "Ошибка"
+        static let errorMessage = "Произошла ошибка загрузки, попробуйте снова"
     }
 
     private(set) var viewState: ObservableObject<ViewState<MovieDetails>> = .init(value: .initial)
     private(set) var isFavorite: ObservableObject<Bool> = .init(value: false)
+    private(set) var alertMessage: ObservableObject<AlertMessage?> = .init(value: nil)
 
     private var apiRequest: APIRequest<MovieDetailsResource>?
     private let movieId: Int
@@ -44,18 +51,7 @@ final class DetailsViewModel {
         self.coordinator = coordinator
         self.storageService = storageService
         self.loadImageService = loadImageService
-        setupBindings()
-    }
-
-    private func setupBindings() {
-        viewState.bind { [weak self] viewState in
-            switch viewState {
-            case let .data(data):
-                self?.syncIsFavoriteState(id: data.id)
-            default:
-                return
-            }
-        }
+        syncIsFavoriteState(id: movieId)
     }
 
     private func getFavoriteMovies() -> [Int] {
@@ -110,6 +106,10 @@ extension DetailsViewModel: DetailsViewModelProtocol {
             DispatchQueue.main.async { [weak self] in
                 guard let movieDetailsDTO else {
                     self?.viewState.value = .error(NetworkError.noData)
+                    self?.alertMessage.value = AlertMessage(
+                        title: Constants.errorTitle,
+                        description: Constants.errorMessage
+                    )
                     return
                 }
                 let movieDetails = MovieDetails(fromDTO: movieDetailsDTO)
@@ -119,6 +119,9 @@ extension DetailsViewModel: DetailsViewModelProtocol {
     }
 
     func watchMovie() {
-        // show alert that feature is not implemented
+        alertMessage.value = AlertMessage(
+            title: Constants.inDevelopmentTitle,
+            description: Constants.inDevelopmentMessage
+        )
     }
 }

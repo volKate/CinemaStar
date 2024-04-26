@@ -58,6 +58,15 @@ final class DetailsViewController: UIViewController {
             self?.heartBarButtonItem
                 .image = UIImage(systemName: isFavorite ? Constants.heartFillImageName : Constants.heartImageName)
         }
+
+        detailsViewModel?.alertMessage.bind { [weak self] alertMessage in
+            guard let alertMessage else { return }
+            self?.showAlert(
+                title: alertMessage.title,
+                message: alertMessage.description,
+                dismissText: alertMessage.dismissButtonText
+            )
+        }
     }
 
     private func setupView() {
@@ -84,6 +93,17 @@ final class DetailsViewController: UIViewController {
         detailsTableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+
+    private func showAlert(title: String, message: String? = nil, dismissText: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let okAlertAction = UIAlertAction(title: dismissText, style: .cancel)
+        alert.addAction(okAlertAction)
+        present(alert, animated: true)
     }
 
     @objc private func handleFavoriteTapped() {
