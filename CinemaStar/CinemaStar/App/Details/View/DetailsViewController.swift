@@ -6,18 +6,43 @@ import UIKit
 
 /// View деталей о фильме
 final class DetailsViewController: UIViewController {
-    private let detailsViewModel: DetailsViewModelProtocol?
+    // MARK: - Constants
+
+    private enum Constants {
+        static let heartImageName = "heart"
+        static let heartFillImageName = "heart.fill"
+    }
+
+    // MARK: - Visual Components
 
     private let detailsTableView = DetailsTableView()
     private lazy var heartBarButtonItem: UIBarButtonItem = {
         let item = UIBarButtonItem(
             title: nil,
-            image: UIImage(systemName: "heart"),
+            image: UIImage(systemName: Constants.heartImageName),
             target: self,
             action: #selector(handleFavoriteTapped)
         )
         return item
     }()
+
+    // MARK: - Private Properties
+
+    private let detailsViewModel: DetailsViewModelProtocol?
+
+    // MARK: - Initializers
+
+    init(detailsViewModel: DetailsViewModelProtocol) {
+        self.detailsViewModel = detailsViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        detailsViewModel = nil
+        super.init(coder: coder)
+    }
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +51,12 @@ final class DetailsViewController: UIViewController {
         setupBindings()
     }
 
+    // MARK: - Private Methods
+
     private func setupBindings() {
         detailsViewModel?.isFavorite.bind { [weak self] isFavorite in
-            self?.heartBarButtonItem.image = UIImage(systemName: isFavorite ? "heart.fill" : "heart")
+            self?.heartBarButtonItem
+                .image = UIImage(systemName: isFavorite ? Constants.heartFillImageName : Constants.heartImageName)
         }
     }
 
@@ -56,16 +84,6 @@ final class DetailsViewController: UIViewController {
         detailsTableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
-    }
-
-    init(detailsViewModel: DetailsViewModelProtocol) {
-        self.detailsViewModel = detailsViewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        detailsViewModel = nil
-        super.init(coder: coder)
     }
 
     @objc private func handleFavoriteTapped() {

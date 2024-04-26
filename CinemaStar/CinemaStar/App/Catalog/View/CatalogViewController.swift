@@ -5,12 +5,14 @@ import UIKit
 
 /// View каталога фильмов
 final class CatalogViewController: UIViewController {
-    private var movies: [MoviePreview] = []
-    private let catalogViewModel: CatalogViewModelProtocol?
+    // MARK: - Constants
+
     private enum Constants {
         static let header = "Смотри исторические\nфильмы на "
         static let logoText = "CINEMA STAR"
     }
+
+    // MARK: - Visual Components
 
     private let headerLabel: UILabel = {
         let label = UILabel()
@@ -37,6 +39,25 @@ final class CatalogViewController: UIViewController {
         return collectionView
     }()
 
+    // MARK: - Private Properties
+
+    private var movies: [MoviePreview] = []
+    private let catalogViewModel: CatalogViewModelProtocol?
+
+    // MARK: - Initializers
+
+    init(catalogViewModel: CatalogViewModelProtocol) {
+        self.catalogViewModel = catalogViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        catalogViewModel = nil
+        super.init(coder: coder)
+    }
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -52,15 +73,7 @@ final class CatalogViewController: UIViewController {
         }
     }
 
-    init(catalogViewModel: CatalogViewModelProtocol) {
-        self.catalogViewModel = catalogViewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        catalogViewModel = nil
-        super.init(coder: coder)
-    }
+    // MARK: - Private Methods
 
     private func setupView() {
         view.layer.insertSublayer(AppBackgroundGradientLayer(frame: view.bounds), at: 0)

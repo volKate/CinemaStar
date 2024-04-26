@@ -3,12 +3,17 @@
 
 import UIKit
 
-///
+/// Ячейка рекоммендаций фильмов
 final class DetailsRecommendationsTableViewCell: UITableViewCell {
+    // MARK: - Constants
+
     static let cellID = String(describing: DetailsRecommendationsTableViewCell.self)
+
     private enum Constants {
         static let title = "Смотрите также"
     }
+
+    // MARK: - Visual Components
 
     private let previewsCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -30,9 +35,6 @@ final class DetailsRecommendationsTableViewCell: UITableViewCell {
         return collectionView
     }()
 
-    private var viewModel: DetailsViewModelProtocol?
-    private var previews: [MoviePreview] = []
-
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .interBold(ofSize: 16)
@@ -40,6 +42,13 @@ final class DetailsRecommendationsTableViewCell: UITableViewCell {
         label.text = Constants.title
         return label
     }()
+
+    // MARK: - Private Properties
+
+    private var viewModel: DetailsViewModelProtocol?
+    private var previews: [MoviePreview] = []
+
+    // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -51,11 +60,15 @@ final class DetailsRecommendationsTableViewCell: UITableViewCell {
         setupCell()
     }
 
+    // MARK: - Public Methods
+
     func configure(previews: [MoviePreview], viewModel: DetailsViewModelProtocol?) {
         self.viewModel = viewModel
         self.previews = previews
         previewsCollection.reloadData()
     }
+
+    // MARK: - Private Methods
 
     private func setupCell() {
         selectionStyle = .none
@@ -81,6 +94,8 @@ final class DetailsRecommendationsTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - DetailsRecommendationsTableViewCell + UICollectionViewDataSource
+
 extension DetailsRecommendationsTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         previews.count
@@ -105,6 +120,8 @@ extension DetailsRecommendationsTableViewCell: UICollectionViewDataSource {
         return cell
     }
 }
+
+// MARK: - DetailsRecommendationsTableViewCell + UICollectionViewDelegateFlowLayout
 
 extension DetailsRecommendationsTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(

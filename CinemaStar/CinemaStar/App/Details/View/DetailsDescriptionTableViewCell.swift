@@ -3,9 +3,13 @@
 
 import UIKit
 
-///
+/// Ячейка описания фильма
 final class DetailsDescriptionTableViewCell: UITableViewCell {
+    // MARK: - Constants
+
     static let cellID = String(describing: DetailsDescriptionTableViewCell.self)
+
+    // MARK: - Visual Components
 
     private let descriptionLabel: UILabel = {
         let label = UILabel()
@@ -14,6 +18,8 @@ final class DetailsDescriptionTableViewCell: UITableViewCell {
         label.numberOfLines = 5
         return label
     }()
+
+    // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,9 +31,13 @@ final class DetailsDescriptionTableViewCell: UITableViewCell {
         setupCell()
     }
 
+    // MARK: - Public Methods
+
     func configure(description: String) {
         descriptionLabel.text = description
     }
+
+    // MARK: - Private Methods
 
     private func setupCell() {
         contentView.addSubview(descriptionLabel)

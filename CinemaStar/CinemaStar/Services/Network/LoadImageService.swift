@@ -3,12 +3,12 @@
 
 import Foundation
 
-///
+/// Протокол сервиса загрузки изображений
 protocol LoadImageServiceProtocol {
     func load(with url: URL, completion: @escaping (Data?) -> Void)
 }
 
-///
+/// Сервис загрузки изображений
 final class LoadImageService: LoadImageServiceProtocol {
     func load(with url: URL, completion: @escaping (Data?) -> Void) {
         let request = ImageRequest(url: url)
@@ -21,7 +21,7 @@ final class LoadImageService: LoadImageServiceProtocol {
     }
 }
 
-/// Прокси для получения изображений
+/// Прокси для получения и кэширования изображений
 final class LoadImageProxy: LoadImageServiceProtocol {
     private var service: LoadImageServiceProtocol
 

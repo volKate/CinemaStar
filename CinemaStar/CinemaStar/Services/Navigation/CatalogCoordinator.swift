@@ -6,8 +6,8 @@ import UIKit
 /// Координатор каталога фильмов
 final class CatalogCoordinator: Coordinator {
     var childCoordinators: [any Coordinator] = []
-    private var navigationController: UINavigationController?
 
+    private var navigationController: UINavigationController?
     private let loadImageService = LoadImageProxy(service: LoadImageService())
 
     func start() {

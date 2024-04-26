@@ -3,12 +3,17 @@
 
 import UIKit
 
-///
+/// Ячейка сведений о языке фильма
 final class DetailsLanguageTableViewCell: UITableViewCell {
+    // MARK: - Constants
+
     static let cellID = String(describing: DetailsLanguageTableViewCell.self)
+
     private enum Constants {
         static let title = "Язык"
     }
+
+    // MARK: - Visual Components
 
     private let languageTitleLabel: UILabel = {
         let label = UILabel()
@@ -25,6 +30,8 @@ final class DetailsLanguageTableViewCell: UITableViewCell {
         return label
     }()
 
+    // MARK: - Initializers
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
@@ -35,9 +42,13 @@ final class DetailsLanguageTableViewCell: UITableViewCell {
         setupCell()
     }
 
+    // MARK: - Public Methods
+
     func configure(language: String) {
         languageLabel.text = language
     }
+
+    // MARK: - Private Methods
 
     private func setupCell() {
         contentView.addSubview(languageTitleLabel)

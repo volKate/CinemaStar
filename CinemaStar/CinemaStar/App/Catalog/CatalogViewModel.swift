@@ -18,7 +18,9 @@ protocol CatalogViewModelProtocol {
 /// ViewModel экрана католога фильмов
 final class CatalogViewModel {
     typealias MoviePreviewsViewState = ViewState<[MoviePreview]>
+
     private(set) var viewState: ObservableObject<MoviePreviewsViewState> = .init(value: .initial)
+
     private var apiRequest: APIRequest<MoviesResource>?
     private let coordinator: CatalogCoordinator
     private let loadImageService: LoadImageServiceProtocol

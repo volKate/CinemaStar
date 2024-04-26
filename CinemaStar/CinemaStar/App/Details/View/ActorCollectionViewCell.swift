@@ -3,9 +3,13 @@
 
 import UIKit
 
-///
+/// Ячейка информации об актере
 final class ActorCollectionViewCell: UICollectionViewCell {
+    // MARK: - Constants
+
     static let cellID = String(describing: ActorCollectionViewCell.self)
+
+    // MARK: - Visual Components
 
     private let actorImageView: UIImageView = {
         let imageView = UIImageView()
@@ -27,6 +31,8 @@ final class ActorCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
+    // MARK: - Initializers
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
@@ -37,6 +43,8 @@ final class ActorCollectionViewCell: UICollectionViewCell {
         setupCell()
     }
 
+    // MARK: - Public Methods
+
     func configure(name: String) {
         nameLabel.text = name
     }
@@ -44,6 +52,8 @@ final class ActorCollectionViewCell: UICollectionViewCell {
     func setImage(data: Data) {
         actorImageView.image = UIImage(data: data)
     }
+
+    // MARK: - Private Methods
 
     private func setupCell() {
         contentView.addSubview(nameLabel)

@@ -3,14 +3,19 @@
 
 import UIKit
 
-///
+/// Ячейка с кнопкой смотреть фильм
 final class DetailsWatchTableViewCell: UITableViewCell {
+    // MARK: - Constants
+
     static let cellID = String(describing: DetailsWatchTableViewCell.self)
+
     private enum Constants {
         static let buttonTitle = "Смотреть"
         static let cornerRadius = 12.0
         static let minHeight = 48.0
     }
+
+    // MARK: - Visual Components
 
     private let watchButton: UIButton = {
         let button = UIButton()
@@ -25,7 +30,11 @@ final class DetailsWatchTableViewCell: UITableViewCell {
         return button
     }()
 
+    // MARK: - Private Properties
+
     private var viewModel: DetailsViewModelProtocol?
+
+    // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -37,9 +46,13 @@ final class DetailsWatchTableViewCell: UITableViewCell {
         setupCell()
     }
 
+    // MARK: - Public Methods
+
     func configure(viewModel: DetailsViewModelProtocol?) {
         self.viewModel = viewModel
     }
+
+    // MARK: - Private Methods
 
     private func setupCell() {
         watchButton.addTarget(self, action: #selector(watchButtonTapped), for: .touchUpInside)

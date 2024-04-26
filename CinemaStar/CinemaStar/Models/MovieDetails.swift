@@ -5,8 +5,11 @@ import Foundation
 
 /// Детали фильма
 struct MovieDetails: Identifiable {
+    /// Тип картины
     enum MovieType: String {
+        /// Сериал
         case series = "tv-series"
+        /// Фильм
         case movie
 
         func stringValue() -> String {
@@ -37,28 +40,6 @@ struct MovieDetails: Identifiable {
     let language: String?
     /// Похожие фильмы
     let similarMovies: [MoviePreview]?
-
-    init(
-        id: Int,
-        name: String,
-        posterUrl: String,
-        kpRating: String,
-        description: String,
-        releaseInfo: String,
-        actors: [Actor],
-        language: String?,
-        similarMovies: [MoviePreview]?
-    ) {
-        self.id = id
-        self.name = name
-        self.posterUrl = URL(string: posterUrl)
-        self.kpRating = kpRating
-        self.description = description
-        self.releaseInfo = releaseInfo
-        self.actors = actors
-        self.language = language
-        self.similarMovies = similarMovies
-    }
 
     init(fromDTO movieDTO: MovieDetailsDTO) {
         id = movieDTO.id

@@ -3,9 +3,13 @@
 
 import UIKit
 
-///
+/// Ячейка заглушка с шиммером экрана деталей
 final class DetailsShimmerTableViewCell: UITableViewCell {
+    // MARK: - Constants
+
     static let cellID = String(describing: DetailsShimmerTableViewCell.self)
+
+    // MARK: - Visual Components
 
     private lazy var posterView = makePlaceholderView(height: 200, width: 170)
     private lazy var titleView = makePlaceholderView(height: 110)
@@ -14,15 +18,7 @@ final class DetailsShimmerTableViewCell: UITableViewCell {
     private lazy var releaseInfoView = makePlaceholderView(width: 202)
     private lazy var actorsTitleView = makePlaceholderView(width: 202)
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupCell()
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupCell()
-    }
+    // MARK: - Private Properties
 
     private var placeholderViews: [UIView] {
         [
@@ -35,6 +31,20 @@ final class DetailsShimmerTableViewCell: UITableViewCell {
         ]
     }
 
+    // MARK: - Initializers
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupCell()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupCell()
+    }
+
+    // MARK: - Life Cycle
+
     override func layoutSubviews() {
         super.layoutSubviews()
         for view in placeholderViews {
@@ -44,6 +54,8 @@ final class DetailsShimmerTableViewCell: UITableViewCell {
             shimmerLayer.frame = view.bounds
         }
     }
+
+    // MARK: - Private Methods
 
     private func setupCell() {
         for placeholderView in placeholderViews {

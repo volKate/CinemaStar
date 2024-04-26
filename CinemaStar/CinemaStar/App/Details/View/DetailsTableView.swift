@@ -3,13 +3,10 @@
 
 import UIKit
 
-///
-struct Row: Hashable {
-    let title: String
-}
-
 /// Таблица деталей о фильме
 final class DetailsTableView: UITableView {
+    // MARK: - Constants
+
     private enum Section {
         case header
         case watch
@@ -20,6 +17,11 @@ final class DetailsTableView: UITableView {
         case watchMore
         case placeholder
     }
+
+    // MARK: - Private Properties
+
+    private var viewModel: DetailsViewModelProtocol?
+    private var movieDetails: MovieDetails?
 
     private var sections: [Section] {
         guard let movieDetails else { return [.placeholder] }
@@ -36,8 +38,7 @@ final class DetailsTableView: UITableView {
         return sections
     }
 
-    private var viewModel: DetailsViewModelProtocol?
-    private var movieDetails: MovieDetails?
+    // MARK: - Initializers
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -48,6 +49,8 @@ final class DetailsTableView: UITableView {
         super.init(coder: coder)
         setupTable()
     }
+
+    // MARK: - Public Methods
 
     func configure(with viewModel: DetailsViewModelProtocol) {
         self.viewModel = viewModel
@@ -62,9 +65,15 @@ final class DetailsTableView: UITableView {
         }
     }
 
+    // MARK: - Private Methods
+
     private func setupTable() {
         dataSource = self
         separatorStyle = .none
+        registerCells()
+    }
+
+    private func registerCells() {
         register(DetailsHeaderTableViewCell.self, forCellReuseIdentifier: DetailsHeaderTableViewCell.cellID)
         register(DetailsWatchTableViewCell.self, forCellReuseIdentifier: DetailsWatchTableViewCell.cellID)
         register(DetailsDescriptionTableViewCell.self, forCellReuseIdentifier: DetailsDescriptionTableViewCell.cellID)

@@ -398,11 +398,10 @@
 				DACF25DB2BDAE6F600D78225 /* DetailsDescriptionTableViewCell.swift */,
 				DACF25DD2BDAEA2400D78225 /* DetailsReleaseInfoTableViewCell.swift */,
 				DACF25DF2BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift */,
-				DACF25E32BDB0CD900D78225 /* DetailsShimmerTableViewCell.swift */,
 				DAD365CA2BDBD45E009A223D /* DetailsActorsTableViewCell.swift */,
 				DAD365CC2BDBDB46009A223D /* ActorCollectionViewCell.swift */,
 				DAD365CE2BDBE723009A223D /* DetailsRecommendationsTableViewCell.swift */,
-				DAD365D02BDBE75C009A223D /* PreviewCollectionViewCell.swift */,
+				DACF25E32BDB0CD900D78225 /* DetailsShimmerTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -410,6 +409,7 @@
 		DACF25D12BD99D8F00D78225 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				DAD365D02BDBE75C009A223D /* PreviewCollectionViewCell.swift */,
 				DACF25D22BD99DAA00D78225 /* AppBackgroundGradientLayer.swift */,
 				DACF25E52BDB0F7000D78225 /* ShimmerLayer.swift */,
 			);

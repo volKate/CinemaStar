@@ -4,13 +4,18 @@
 import SnapKit
 import UIKit
 
-///
+/// Ячейка шапки деталей
 final class DetailsHeaderTableViewCell: UITableViewCell {
+    // MARK: - Constants
+
     static let cellID = String(describing: DetailsHeaderTableViewCell.self)
+
     private enum Constants {
         static let posterCornerRadius = 8.0
         static let posterSize = CGSize(width: 170, height: 200)
     }
+
+    // MARK: - Visual Components
 
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()
@@ -41,6 +46,8 @@ final class DetailsHeaderTableViewCell: UITableViewCell {
         return label
     }()
 
+    // MARK: - Initializers
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
@@ -51,6 +58,8 @@ final class DetailsHeaderTableViewCell: UITableViewCell {
         setupCell()
     }
 
+    // MARK: - Public Methods
+
     func configure(title: String, rating: String) {
         titleLabel.text = title
         ratingLabel.text = rating
@@ -59,6 +68,8 @@ final class DetailsHeaderTableViewCell: UITableViewCell {
     func setImage(data: Data) {
         posterImageView.image = UIImage(data: data)
     }
+
+    // MARK: - Private Methods
 
     private func setupCell() {
         contentView.addSubview(posterImageView)

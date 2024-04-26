@@ -3,8 +3,13 @@
 
 import UIKit
 
+/// Ячейка превью фильма
 final class PreviewCollectionViewCell: UICollectionViewCell {
+    // MARK: - Constants
+
     static let cellID = String(describing: PreviewCollectionViewCell.self)
+
+    // MARK: - Visual Components
 
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()
@@ -28,6 +33,8 @@ final class PreviewCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
+    // MARK: - Initializers
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
@@ -38,6 +45,8 @@ final class PreviewCollectionViewCell: UICollectionViewCell {
         setupCell()
     }
 
+    // MARK: - Public Methods
+
     func configure(name: String) {
         nameLabel.text = name
     }
@@ -45,6 +54,8 @@ final class PreviewCollectionViewCell: UICollectionViewCell {
     func setImage(data: Data) {
         posterImageView.image = UIImage(data: data)
     }
+
+    // MARK: - Private Methods
 
     private func setupCell() {
         contentView.addSubview(nameLabel)

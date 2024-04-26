@@ -3,9 +3,13 @@
 
 import UIKit
 
-///
+/// Ячейка информации о релизе фильма
 final class DetailsReleaseInfoTableViewCell: UITableViewCell {
+    // MARK: - Constants
+
     static let cellID = String(describing: DetailsReleaseInfoTableViewCell.self)
+
+    // MARK: - Visual Components
 
     private let releaseInfoLabel: UILabel = {
         let label = UILabel()
@@ -13,6 +17,8 @@ final class DetailsReleaseInfoTableViewCell: UITableViewCell {
         label.textColor = UIColor(white: 0, alpha: 0.41)
         return label
     }()
+
+    // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,9 +30,13 @@ final class DetailsReleaseInfoTableViewCell: UITableViewCell {
         setupCell()
     }
 
+    // MARK: - Public Methods
+
     func configure(releaseInfo: String) {
         releaseInfoLabel.text = releaseInfo
     }
+
+    // MARK: - Private Methods
 
     private func setupCell() {
         contentView.addSubview(releaseInfoLabel)

@@ -3,12 +3,17 @@
 
 import UIKit
 
-///
+/// Ячейка с актерами картины
 final class DetailsActorsTableViewCell: UITableViewCell {
+    // MARK: - Constants
+
     static let cellID = String(describing: DetailsActorsTableViewCell.self)
+
     private enum Constants {
         static let title = "Актеры и съемочная группа"
     }
+
+    // MARK: - Visual Components
 
     private let actorsCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -30,9 +35,6 @@ final class DetailsActorsTableViewCell: UITableViewCell {
         return collectionView
     }()
 
-    private var viewModel: DetailsViewModelProtocol?
-    private var actors: [Actor] = []
-
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .interBold(ofSize: 16)
@@ -40,6 +42,13 @@ final class DetailsActorsTableViewCell: UITableViewCell {
         label.text = Constants.title
         return label
     }()
+
+    // MARK: - Private Properties
+
+    private var viewModel: DetailsViewModelProtocol?
+    private var actors: [Actor] = []
+
+    // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -51,11 +60,15 @@ final class DetailsActorsTableViewCell: UITableViewCell {
         setupCell()
     }
 
+    // MARK: - Public Methods
+
     func configure(actors: [Actor], viewModel: DetailsViewModelProtocol?) {
         self.viewModel = viewModel
         self.actors = actors
         actorsCollection.reloadData()
     }
+
+    // MARK: - Private Methods
 
     private func setupCell() {
         selectionStyle = .none
@@ -81,6 +94,8 @@ final class DetailsActorsTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - DetailsActorsTableViewCell + UICollectionViewDataSource
+
 extension DetailsActorsTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         actors.count
@@ -105,6 +120,8 @@ extension DetailsActorsTableViewCell: UICollectionViewDataSource {
         return cell
     }
 }
+
+// MARK: - DetailsActorsTableViewCell + UICollectionViewDelegateFlowLayout
 
 extension DetailsActorsTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(
