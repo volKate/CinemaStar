@@ -15,6 +15,6 @@ struct Actor: Identifiable {
     init(fromDTO actorDTO: PersonDTO) {
         id = actorDTO.id
         photoUrl = URL(string: actorDTO.photo)
-        name = actorDTO.name
+        name = actorDTO.name ?? actorDTO.enName ?? ""
     }
 }

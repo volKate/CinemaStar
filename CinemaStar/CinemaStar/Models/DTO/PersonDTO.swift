@@ -8,5 +8,7 @@ struct PersonDTO: Decodable {
     /// Url фотографии
     let photo: String
     /// Имя
-    let name: String
+    let name: String?
+    /// Иностранное имя
+    let enName: String?
 }

@@ -24,6 +24,7 @@ final class PreviewCollectionViewCell: UICollectionViewCell {
         label.font = .inter(ofSize: 16)
         label.numberOfLines = 0
         label.textColor = .white
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
