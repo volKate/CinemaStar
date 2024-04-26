@@ -17,6 +17,21 @@ final class DetailsShimmerTableViewCell: UITableViewCell {
     private lazy var descriptionView = makePlaceholderView(height: 100)
     private lazy var releaseInfoView = makePlaceholderView(width: 202)
     private lazy var actorsTitleView = makePlaceholderView(width: 202)
+    private lazy var actorsView: UIStackView = {
+        let stack = UIStackView()
+        for _ in 1 ... 6 {
+            stack.addArrangedSubview(makePlaceholderView(height: 97))
+        }
+        stack.spacing = 8
+        stack.distribution = .fillEqually
+        return stack
+    }()
+
+    private lazy var languageTitleView = makePlaceholderView(width: 202)
+    private lazy var languageView = makePlaceholderView(width: 202)
+    private lazy var recommendationsTitleView = makePlaceholderView(width: 202)
+    private lazy var recommendationView = makePlaceholderView(height: 200, width: 170)
+    private lazy var recommendationNameView = makePlaceholderView(width: 202)
 
     // MARK: - Private Properties
 
@@ -27,8 +42,21 @@ final class DetailsShimmerTableViewCell: UITableViewCell {
             buttonView,
             descriptionView,
             releaseInfoView,
-            actorsTitleView
+            actorsTitleView,
+            actorsView,
+            languageTitleView,
+            languageView,
+            recommendationsTitleView,
+            recommendationView,
+            recommendationNameView
         ]
+    }
+
+    private var shimmeredViews: [UIView] {
+        placeholderViews.map { view in
+            guard let stackView = view as? UIStackView else { return [view] }
+            return stackView.arrangedSubviews
+        }.flatMap { $0 }
     }
 
     // MARK: - Initializers
@@ -47,7 +75,7 @@ final class DetailsShimmerTableViewCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        for view in placeholderViews {
+        for view in shimmeredViews {
             view.layoutIfNeeded()
             let shimmerLayer = ShimmerLayer()
             view.layer.addSublayer(shimmerLayer)
@@ -96,6 +124,37 @@ final class DetailsShimmerTableViewCell: UITableViewCell {
         actorsTitleView.snp.makeConstraints { make in
             make.leading.equalTo(contentView).inset(16)
             make.top.equalTo(releaseInfoView.snp.bottom).offset(16)
+        }
+
+        actorsView.snp.makeConstraints { make in
+            make.leading.equalTo(contentView).inset(16)
+            make.trailing.equalTo(contentView).inset(-22)
+            make.top.equalTo(actorsTitleView.snp.bottom).offset(10)
+        }
+
+        languageTitleView.snp.makeConstraints { make in
+            make.leading.equalTo(contentView).inset(16)
+            make.top.equalTo(actorsView.snp.bottom).offset(14)
+        }
+
+        languageView.snp.makeConstraints { make in
+            make.leading.equalTo(contentView).inset(16)
+            make.top.equalTo(languageTitleView.snp.bottom).offset(4)
+        }
+
+        recommendationsTitleView.snp.makeConstraints { make in
+            make.leading.equalTo(contentView).inset(16)
+            make.top.equalTo(languageView.snp.bottom).offset(10)
+        }
+
+        recommendationView.snp.makeConstraints { make in
+            make.leading.equalTo(contentView).inset(16)
+            make.top.equalTo(recommendationsTitleView.snp.bottom).offset(8)
+        }
+
+        recommendationNameView.snp.makeConstraints { make in
+            make.leading.equalTo(contentView).inset(16)
+            make.top.equalTo(recommendationView.snp.bottom).offset(8)
             make.bottom.equalTo(contentView)
         }
     }

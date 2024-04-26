@@ -103,9 +103,11 @@ extension DetailsTableView: UITableViewDataSource {
                     withIdentifier: DetailsShimmerTableViewCell
                         .cellID
                 ) as? DetailsShimmerTableViewCell else { return .init() }
+            isScrollEnabled = false
             return cell
         case .data:
             let section = sections[indexPath.row]
+            isScrollEnabled = true
             return getSectionReusableCell(tableView, for: section)
         default:
             return .init()
