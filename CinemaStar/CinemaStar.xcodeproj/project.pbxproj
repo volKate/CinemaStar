@@ -340,7 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				DACF25AD2BD8174900D78225 /* CatalogViewModel.swift */,
-				DACF25AF2BD8178000D78225 /* CatalogViewController.swift */,
+				DAD365D22BDBF353009A223D /* View */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -422,6 +422,14 @@
 				DACF25D72BDAD8FF00D78225 /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DAD365D22BDBF353009A223D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DACF25AF2BD8178000D78225 /* CatalogViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

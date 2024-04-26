@@ -13,7 +13,7 @@ final class PreviewCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
         imageView.snp.makeConstraints { make in
-            make.width.equalTo(170)
+            make.width.greaterThanOrEqualTo(170)
             make.height.equalTo(200)
         }
         return imageView

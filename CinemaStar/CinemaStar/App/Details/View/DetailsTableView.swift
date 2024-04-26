@@ -39,8 +39,6 @@ final class DetailsTableView: UITableView {
     private var viewModel: DetailsViewModelProtocol?
     private var movieDetails: MovieDetails?
 
-    private var diffableDataSource: UITableViewDiffableDataSource<Section, Row>?
-
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         setupTable()

@@ -8,10 +8,14 @@ final class CatalogCoordinator: Coordinator {
     var childCoordinators: [any Coordinator] = []
     private var navigationController: UINavigationController?
 
+    private let loadImageService = LoadImageProxy(service: LoadImageService())
+
     func start() {
-        let catalogViewModel = CatalogViewModel(coordinator: self)
+        let catalogViewModel = CatalogViewModel(coordinator: self, loadImageService: loadImageService)
         let catalogViewController = CatalogViewController(catalogViewModel: catalogViewModel)
-        setAsRoot(catalogViewController)
+        let navigationController = UINavigationController(rootViewController: catalogViewController)
+        self.navigationController = navigationController
+        setAsRoot(navigationController)
     }
 
     func openMovieDetails(id: Int) {
@@ -19,7 +23,7 @@ final class CatalogCoordinator: Coordinator {
             movieId: id,
             coordinator: self,
             storageService: UserDefaultsStorage(),
-            loadImageService: LoadImageProxy(service: LoadImageService())
+            loadImageService: loadImageService
         )
         let detailsViewController = DetailsViewController(detailsViewModel: detailsViewModel)
         navigationController?.pushViewController(detailsViewController, animated: true)
