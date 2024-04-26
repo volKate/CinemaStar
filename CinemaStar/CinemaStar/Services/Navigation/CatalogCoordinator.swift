@@ -17,7 +17,7 @@ final class CatalogCoordinator: Coordinator {
             movieId: 470_711_011,
             coordinator: self,
             storageService: UserDefaultsStorage(),
-            loadImageService: LoadImageService()
+            loadImageService: LoadImageProxy(service: LoadImageService())
         )
         let catalogViewController = DetailsViewController(detailsViewModel: catalogViewModel)
         setAsRoot(catalogViewController)

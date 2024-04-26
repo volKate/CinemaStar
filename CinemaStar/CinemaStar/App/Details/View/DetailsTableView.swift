@@ -18,10 +18,11 @@ final class DetailsTableView: UITableView {
         case cast
         case language
         case watchMore
+        case placeholder
     }
 
     private var sections: [Section] {
-        guard let movieDetails else { return [] }
+        guard let movieDetails else { return [.placeholder] }
         var sections = [Section.header, .watch, .desription, .info]
         if !movieDetails.actors.isEmpty {
             sections.append(.cast)
@@ -65,12 +66,13 @@ final class DetailsTableView: UITableView {
 
     private func setupTable() {
         dataSource = self
-//        separatorStyle = .none
+        separatorStyle = .none
         register(DetailsHeaderTableViewCell.self, forCellReuseIdentifier: DetailsHeaderTableViewCell.cellID)
         register(DetailsWatchTableViewCell.self, forCellReuseIdentifier: DetailsWatchTableViewCell.cellID)
         register(DetailsDescriptionTableViewCell.self, forCellReuseIdentifier: DetailsDescriptionTableViewCell.cellID)
         register(DetailsReleaseInfoTableViewCell.self, forCellReuseIdentifier: DetailsReleaseInfoTableViewCell.cellID)
         register(DetailsLanguageTableViewCell.self, forCellReuseIdentifier: DetailsLanguageTableViewCell.cellID)
+        register(DetailsShimmerTableViewCell.self, forCellReuseIdentifier: DetailsShimmerTableViewCell.cellID)
     }
 }
 
@@ -84,16 +86,18 @@ extension DetailsTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch viewModel?.viewState.value {
         case .loading:
-            return .init()
+            guard let cell = tableView
+                .dequeueReusableCell(
+                    withIdentifier: DetailsShimmerTableViewCell
+                        .cellID
+                ) as? DetailsShimmerTableViewCell else { return .init() }
+            return cell
         case .data:
             let section = sections[indexPath.row]
             return getSectionReusableCell(tableView, for: section)
         default:
             return .init()
         }
-
-//        let section = sections[indexPath.row]
-//        return getSectionReusableCell(tableView, for: section)
     }
 
     private func getSectionReusableCell(_ tableView: UITableView, for section: Section) -> UITableViewCell {

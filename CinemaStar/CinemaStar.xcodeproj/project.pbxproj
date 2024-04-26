@@ -59,6 +59,8 @@
 		DACF25DE2BDAEA2400D78225 /* DetailsReleaseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25DD2BDAEA2400D78225 /* DetailsReleaseInfoTableViewCell.swift */; };
 		DACF25E02BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25DF2BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift */; };
 		DACF25E22BDAF84400D78225 /* LoadImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25E12BDAF84400D78225 /* LoadImageService.swift */; };
+		DACF25E42BDB0CD900D78225 /* DetailsShimmerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25E32BDB0CD900D78225 /* DetailsShimmerTableViewCell.swift */; };
+		DACF25E62BDB0F7000D78225 /* ShimmerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25E52BDB0F7000D78225 /* ShimmerLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,8 @@
 		DACF25DD2BDAEA2400D78225 /* DetailsReleaseInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsReleaseInfoTableViewCell.swift; sourceTree = "<group>"; };
 		DACF25DF2BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLanguageTableViewCell.swift; sourceTree = "<group>"; };
 		DACF25E12BDAF84400D78225 /* LoadImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageService.swift; sourceTree = "<group>"; };
+		DACF25E32BDB0CD900D78225 /* DetailsShimmerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsShimmerTableViewCell.swift; sourceTree = "<group>"; };
+		DACF25E52BDB0F7000D78225 /* ShimmerLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +390,7 @@
 				DACF25DB2BDAE6F600D78225 /* DetailsDescriptionTableViewCell.swift */,
 				DACF25DD2BDAEA2400D78225 /* DetailsReleaseInfoTableViewCell.swift */,
 				DACF25DF2BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift */,
+				DACF25E32BDB0CD900D78225 /* DetailsShimmerTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				DACF25D22BD99DAA00D78225 /* AppBackgroundGradientLayer.swift */,
+				DACF25E52BDB0F7000D78225 /* ShimmerLayer.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -600,6 +606,7 @@
 				DACF25D82BDAD8FF00D78225 /* UIFont+Extension.swift in Sources */,
 				DACF25E22BDAF84400D78225 /* LoadImageService.swift in Sources */,
 				DACF25802BD7D50E00D78225 /* ObservableObject.swift in Sources */,
+				DACF25E62BDB0F7000D78225 /* ShimmerLayer.swift in Sources */,
 				DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */,
 				DACF25C22BD83FF200D78225 /* TokenStorage.swift in Sources */,
 				DACF25E02BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift in Sources */,
@@ -609,6 +616,7 @@
 				DACF25B92BD835D400D78225 /* Coordinator.swift in Sources */,
 				DACF25A82BD8135900D78225 /* NetworkError.swift in Sources */,
 				DACF25962BD7ECB200D78225 /* LanguageDTO.swift in Sources */,
+				DACF25E42BDB0CD900D78225 /* DetailsShimmerTableViewCell.swift in Sources */,
 				DACF25A42BD80FA800D78225 /* ImageRequest.swift in Sources */,
 				DACF25DC2BDAE6F600D78225 /* DetailsDescriptionTableViewCell.swift in Sources */,
 				DAAAA9B32BD6E01A0009D60C /* SceneDelegate.swift in Sources */,

@@ -17,9 +17,11 @@ final class DetailsHeaderTableViewCell: UITableViewCell {
         imageView.layer.cornerRadius = Constants.posterCornerRadius
         imageView.clipsToBounds = true
         imageView.backgroundColor = .lightGray
+        imageView.contentMode = .scaleAspectFill
         imageView.snp.makeConstraints { make in
             make.width.equalTo(Constants.posterSize.width)
             make.height.greaterThanOrEqualTo(Constants.posterSize.height)
+            make.height.lessThanOrEqualTo(Constants.posterSize.height + 5)
         }
         return imageView
     }()
