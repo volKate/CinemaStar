@@ -24,10 +24,16 @@ final class CatalogViewModel {
     private var apiRequest: APIRequest<MoviesResource>?
     private let coordinator: CatalogCoordinator
     private let loadImageService: LoadImageServiceProtocol
+    private let networkService: NetworkServiceProtocol
 
-    init(coordinator: CatalogCoordinator, loadImageService: LoadImageServiceProtocol) {
+    init(
+        coordinator: CatalogCoordinator,
+        loadImageService: LoadImageServiceProtocol,
+        networkService: NetworkServiceProtocol
+    ) {
         self.coordinator = coordinator
         self.loadImageService = loadImageService
+        self.networkService = networkService
     }
 }
 
@@ -40,18 +46,12 @@ extension CatalogViewModel: CatalogViewModelProtocol {
 
     func fetchMovies() {
         viewState.value = .loading
-        let resource = MoviesResource()
-        let request = APIRequest(resource: resource)
-        apiRequest = request
-        request.execute { moviesDTO in
-            DispatchQueue.main.async { [weak self] in
-                guard let moviesDTO else {
-                    self?.viewState.value = .error(NetworkError.noData)
-                    return
-                }
-                let moviePreviews = moviesDTO.docs.map { MoviePreview(fromDTO: $0) }
-                self?.viewState.value = .data(moviePreviews)
+        networkService.loadMovies { [weak self] moviePreviews in
+            guard let moviePreviews else {
+                self?.viewState.value = .error(NetworkError.noData)
+                return
             }
+            self?.viewState.value = .data(moviePreviews)
         }
     }
 

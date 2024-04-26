@@ -40,17 +40,20 @@ final class DetailsViewModel {
     private let coordinator: CatalogCoordinator
     private let storageService: Storage
     private let loadImageService: LoadImageServiceProtocol
+    private let networkService: NetworkServiceProtocol
 
     init(
         movieId: Int,
         coordinator: CatalogCoordinator,
         storageService: Storage,
-        loadImageService: LoadImageServiceProtocol
+        loadImageService: LoadImageServiceProtocol,
+        networkService: NetworkServiceProtocol
     ) {
         self.movieId = movieId
         self.coordinator = coordinator
         self.storageService = storageService
         self.loadImageService = loadImageService
+        self.networkService = networkService
         syncIsFavoriteState(id: movieId)
     }
 
@@ -98,23 +101,17 @@ extension DetailsViewModel: DetailsViewModelProtocol {
 
     func fetchMovieDetails() {
         viewState.value = .loading
-        let resource = MovieDetailsResource(id: movieId)
-        let request = APIRequest(resource: resource)
-        apiRequest = request
 
-        request.execute { movieDetailsDTO in
-            DispatchQueue.main.async { [weak self] in
-                guard let movieDetailsDTO else {
-                    self?.viewState.value = .error(NetworkError.noData)
-                    self?.alertMessage.value = AlertMessage(
-                        title: Constants.errorTitle,
-                        description: Constants.errorMessage
-                    )
-                    return
-                }
-                let movieDetails = MovieDetails(fromDTO: movieDetailsDTO)
-                self?.viewState.value = .data(movieDetails)
+        networkService.loadMovieDetails(id: movieId) { [weak self] movieDetails in
+            guard let movieDetails else {
+                self?.viewState.value = .error(NetworkError.noData)
+                self?.alertMessage.value = AlertMessage(
+                    title: Constants.errorTitle,
+                    description: Constants.errorMessage
+                )
+                return
             }
+            self?.viewState.value = .data(movieDetails)
         }
     }
 

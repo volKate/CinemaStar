@@ -5,6 +5,7 @@ import Foundation
 
 /// Протокол сервиса загрузки изображений
 protocol LoadImageServiceProtocol {
+    /// Метод загрузки изображения
     func load(with url: URL, completion: @escaping (Data?) -> Void)
 }
 

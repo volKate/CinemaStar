@@ -67,6 +67,7 @@
 		DAD365D12BDBE75C009A223D /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D02BDBE75C009A223D /* PreviewCollectionViewCell.swift */; };
 		DAD365D62BDC1746009A223D /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D52BDC1746009A223D /* AlertMessage.swift */; };
 		DAD365D82BDC2830009A223D /* MovieShimmerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D72BDC2830009A223D /* MovieShimmerCollectionViewCell.swift */; };
+		DAD365DA2BDC340D009A223D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D92BDC340D009A223D /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,7 @@
 		DAD365D02BDBE75C009A223D /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		DAD365D52BDC1746009A223D /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		DAD365D72BDC2830009A223D /* MovieShimmerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieShimmerCollectionViewCell.swift; sourceTree = "<group>"; };
+		DAD365D92BDC340D009A223D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 				DACF25A12BD80EC400D78225 /* NetworkRequest.swift */,
 				DACF25A72BD8135900D78225 /* NetworkError.swift */,
 				DACF25E12BDAF84400D78225 /* LoadImageService.swift */,
+				DAD365D92BDC340D009A223D /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				DAD365CB2BDBD45E009A223D /* DetailsActorsTableViewCell.swift in Sources */,
 				DACF25982BD7F04500D78225 /* Actor.swift in Sources */,
 				DACF25DA2BDAE0EE00D78225 /* DetailsWatchTableViewCell.swift in Sources */,
+				DAD365DA2BDC340D009A223D /* NetworkService.swift in Sources */,
 				DACF25B22BD8285A00D78225 /* ViewState.swift in Sources */,
 				DACF25822BD7E32900D78225 /* MoviePreview.swift in Sources */,
 				DACF25C82BD849E000D78225 /* Storage.swift in Sources */,
