@@ -37,14 +37,14 @@ final class DetailsViewModel {
 
     private var apiRequest: APIRequest<MovieDetailsResource>?
     private let movieId: Int
-    private let coordinator: CatalogCoordinator
+    private let coordinator: CatalogCoordinatorProtocol
     private let storageService: Storage
     private let loadImageService: LoadImageServiceProtocol
     private let networkService: NetworkServiceProtocol
 
     init(
         movieId: Int,
-        coordinator: CatalogCoordinator,
+        coordinator: CatalogCoordinatorProtocol,
         storageService: Storage,
         loadImageService: LoadImageServiceProtocol,
         networkService: NetworkServiceProtocol
@@ -104,7 +104,7 @@ extension DetailsViewModel: DetailsViewModelProtocol {
 
         networkService.loadMovieDetails(id: movieId) { [weak self] movieDetails in
             guard let movieDetails else {
-                self?.viewState.value = .error(NetworkError.noData)
+                self?.viewState.value = .error
                 self?.alertMessage.value = AlertMessage(
                     title: Constants.errorTitle,
                     description: Constants.errorMessage

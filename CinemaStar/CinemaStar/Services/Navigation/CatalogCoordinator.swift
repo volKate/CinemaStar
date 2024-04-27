@@ -3,8 +3,16 @@
 
 import UIKit
 
+/// Протокол координатора флоу каталога
+protocol CatalogCoordinatorProtocol: Coordinator {
+    /// Метод навигации на экран деталей
+    func openMovieDetails(id: Int)
+    /// Метод навигации назад по стеку
+    func goBack()
+}
+
 /// Координатор каталога фильмов
-final class CatalogCoordinator: Coordinator {
+final class CatalogCoordinator: CatalogCoordinatorProtocol {
     var childCoordinators: [any Coordinator] = []
 
     private var navigationController: UINavigationController?
