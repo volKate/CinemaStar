@@ -25,3 +25,11 @@ struct MoviePreview: Identifiable {
         }
     }
 }
+
+// MARK: - MoviePreview + Equatable
+
+extension MoviePreview: Equatable {
+    static func == (lhs: MoviePreview, rhs: MoviePreview) -> Bool {
+        lhs.id == rhs.id
+    }
+}

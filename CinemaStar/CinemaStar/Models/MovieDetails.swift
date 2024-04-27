@@ -57,3 +57,11 @@ struct MovieDetails: Identifiable {
         similarMovies = movieDTO.similarMovies?.map { MoviePreview(fromDTO: $0) }
     }
 }
+
+// MARK: - MovieDetails + Equatable
+
+extension MovieDetails: Equatable {
+    static func == (lhs: MovieDetails, rhs: MovieDetails) -> Bool {
+        lhs.id == rhs.id
+    }
+}

@@ -14,5 +14,7 @@ enum ViewState<T> {
     /// Данные не загружены
     case noData
     /// Ошибка при попытке запроса
-    case error(Error)
+    case error
 }
+
+extension ViewState: Equatable where T: Equatable {}

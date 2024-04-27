@@ -21,13 +21,12 @@ final class CatalogViewModel {
 
     private(set) var viewState: ObservableObject<MoviePreviewsViewState> = .init(value: .initial)
 
-    private var apiRequest: APIRequest<MoviesResource>?
-    private let coordinator: CatalogCoordinator
+    private let coordinator: CatalogCoordinatorProtocol
     private let loadImageService: LoadImageServiceProtocol
     private let networkService: NetworkServiceProtocol
 
     init(
-        coordinator: CatalogCoordinator,
+        coordinator: CatalogCoordinatorProtocol,
         loadImageService: LoadImageServiceProtocol,
         networkService: NetworkServiceProtocol
     ) {
@@ -48,7 +47,7 @@ extension CatalogViewModel: CatalogViewModelProtocol {
         viewState.value = .loading
         networkService.loadMovies { [weak self] moviePreviews in
             guard let moviePreviews else {
-                self?.viewState.value = .error(NetworkError.noData)
+                self?.viewState.value = .error
                 return
             }
             self?.viewState.value = .data(moviePreviews)
