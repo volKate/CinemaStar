@@ -1,0 +1,24 @@
+{
+  "originHash" : "6eed149e11d2c9186dc3568cdeb31abc82c5b02b4a66ffa0b875d75a106de30a",
+  "pins" : [
+    {
+      "identity" : "keychain.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/groupeminaste/Keychain.swift.git",
+      "state" : {
+        "revision" : "d4b6bd007fd8432a59d341faa22ec0cd738d2d9d",
+        "version" : "1.0.5"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
+      }
+    }
+  ],
+  "version" : 3
+}
